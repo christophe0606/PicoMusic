@@ -13,21 +13,21 @@ The LCD graph is reading the audio data and generating a framebuffer to display 
 
 [Arm-2D](https://github.com/ARM-software/Arm-2D) is not yet integrated.
 
-![PicoMusic](/Users/cfavergeon/Documents/Pico/MyPicoProjects/PicoMusic/Documentation/PicoMusic.png)
+![PicoMusic](Documentation/PicoMusic.png)
 
 
 
 ## Audio graph
 
-![audio_graph](/Users/cfavergeon/Documents/Pico/MyPicoProjects/PicoMusic/Pictures/audio_graph.svg)
+![audio_graph](Pictures/audio_graph.svg)
 
 ## LCD Graph
 
-![lcd_graph](/Users/cfavergeon/Documents/Pico/MyPicoProjects/PicoMusic/Pictures/lcd_graph.svg)
+![lcd_graph](Pictures/lcd_graph.svg)
 
 ## Connection to speaker
 
-![PicoAmp_bb](/Users/cfavergeon/Documents/Pico/MyPicoProjects/PicoMusic/Documentation/PicoAmp_bb.png)
+![PicoAmp_bb](Documentation/PicoAmp_bb.png)
 
 The transistor is a NPN 2222A
 
