@@ -1,0 +1,8 @@
+#ifndef _LCD_PYTHON_GRAPH_CONFIG_H_ 
+#define _LCD_PYTHON_GRAPH_CONFIG_H_
+
+#define FFTSIZE 256 
+#define AUDIO_BLOCK_LENGTH 128
+
+#endif
+

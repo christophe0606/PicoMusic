@@ -1,0 +1,4 @@
+cmake -DDSP=$1/CMSIS-DSP \
+  -DSTREAM=$1/CMSIS-Stream \
+  -DCMSISCORE=$1/CMSIS_5/CMSIS/Core \
+  ..

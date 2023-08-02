@@ -1,0 +1,7 @@
+#ifndef _AUDIO_PYTHON_GRAPH_CONFIG_H_ 
+#define _AUDIO_PYTHON_GRAPH_CONFIG_H_
+
+#define AUDIO_BLOCK_LENGTH 128
+
+#endif
+

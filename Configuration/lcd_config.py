@@ -1,0 +1,5 @@
+WIDTH = 240 
+HEIGHT = 240 
+
+LCD_REFRESH = 40 # ms 
+PAD = 40 

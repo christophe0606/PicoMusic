@@ -1,0 +1,473 @@
+
+
+
+
+digraph structs {
+    bgcolor = "white"
+    node [shape=plaintext,color="black",fontcolor="black",fontname="Times-Roman"]
+    rankdir=LR
+    edge [arrowsize="0.5",color="black",fontcolor="black",fontname="Times-Roman"]
+
+
+
+
+NoteSequencer [label=<
+<TABLE color="black" bgcolor="none" BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4">
+  <TR>
+    <TD></TD>
+    <TD ALIGN="CENTER" ROWSPAN="6"><FONT COLOR="black" POINT-SIZE="14.0">NoteSequencer<BR/>(Sequencer)</FONT></TD>
+    <TD PORT="A"><FONT POINT-SIZE="12.0" COLOR="black">A</FONT></TD>
+  </TR>
+<TR>
+ 
+<TD></TD>
+<TD PORT="B"><FONT POINT-SIZE="12.0" COLOR="black">B</FONT></TD>
+</TR><TR>
+ 
+<TD></TD>
+<TD PORT="C"><FONT POINT-SIZE="12.0" COLOR="black">C</FONT></TD>
+</TR><TR>
+ 
+<TD></TD>
+<TD PORT="D"><FONT POINT-SIZE="12.0" COLOR="black">D</FONT></TD>
+</TR><TR>
+ 
+<TD></TD>
+<TD PORT="E"><FONT POINT-SIZE="12.0" COLOR="black">E</FONT></TD>
+</TR><TR>
+ 
+<TD></TD>
+<TD PORT="F"><FONT POINT-SIZE="12.0" COLOR="black">F</FONT></TD>
+</TR>
+
+</TABLE>>];
+
+Waveform0 [label=<
+<TABLE color="black" bgcolor="none" BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4">
+  <TR>
+    <TD ALIGN="CENTER" PORT="i"><FONT COLOR="black" POINT-SIZE="14.0">Waveform0<BR/>(Waveform)</FONT></TD>
+  </TR>
+</TABLE>>];
+
+
+Enveloppe_0 [label=<
+<TABLE color="black" bgcolor="none" BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4">
+  <TR>
+    <TD PORT="c"><FONT POINT-SIZE="12.0" COLOR="black">c</FONT></TD>
+    <TD ALIGN="CENTER" ROWSPAN="2"><FONT COLOR="black" POINT-SIZE="14.0">Enveloppe_0<BR/>(Enveloppe)</FONT></TD>
+    <TD PORT="o"><FONT POINT-SIZE="12.0" COLOR="black">o</FONT></TD>
+  </TR>
+<TR>
+<TD PORT="i"><FONT POINT-SIZE="12.0" COLOR="black">i</FONT></TD>
+
+ 
+<TD></TD></TR>
+
+</TABLE>>];
+
+Waveform1 [label=<
+<TABLE color="black" bgcolor="none" BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4">
+  <TR>
+    <TD ALIGN="CENTER" PORT="i"><FONT COLOR="black" POINT-SIZE="14.0">Waveform1<BR/>(Waveform)</FONT></TD>
+  </TR>
+</TABLE>>];
+
+
+Enveloppe_1 [label=<
+<TABLE color="black" bgcolor="none" BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4">
+  <TR>
+    <TD PORT="c"><FONT POINT-SIZE="12.0" COLOR="black">c</FONT></TD>
+    <TD ALIGN="CENTER" ROWSPAN="2"><FONT COLOR="black" POINT-SIZE="14.0">Enveloppe_1<BR/>(Enveloppe)</FONT></TD>
+    <TD PORT="o"><FONT POINT-SIZE="12.0" COLOR="black">o</FONT></TD>
+  </TR>
+<TR>
+<TD PORT="i"><FONT POINT-SIZE="12.0" COLOR="black">i</FONT></TD>
+
+ 
+<TD></TD></TR>
+
+</TABLE>>];
+
+Waveform2 [label=<
+<TABLE color="black" bgcolor="none" BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4">
+  <TR>
+    <TD ALIGN="CENTER" PORT="i"><FONT COLOR="black" POINT-SIZE="14.0">Waveform2<BR/>(Waveform)</FONT></TD>
+  </TR>
+</TABLE>>];
+
+
+Enveloppe_2 [label=<
+<TABLE color="black" bgcolor="none" BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4">
+  <TR>
+    <TD PORT="c"><FONT POINT-SIZE="12.0" COLOR="black">c</FONT></TD>
+    <TD ALIGN="CENTER" ROWSPAN="2"><FONT COLOR="black" POINT-SIZE="14.0">Enveloppe_2<BR/>(Enveloppe)</FONT></TD>
+    <TD PORT="o"><FONT POINT-SIZE="12.0" COLOR="black">o</FONT></TD>
+  </TR>
+<TR>
+<TD PORT="i"><FONT POINT-SIZE="12.0" COLOR="black">i</FONT></TD>
+
+ 
+<TD></TD></TR>
+
+</TABLE>>];
+
+Waveform3 [label=<
+<TABLE color="black" bgcolor="none" BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4">
+  <TR>
+    <TD ALIGN="CENTER" PORT="i"><FONT COLOR="black" POINT-SIZE="14.0">Waveform3<BR/>(Waveform)</FONT></TD>
+  </TR>
+</TABLE>>];
+
+
+Enveloppe_3 [label=<
+<TABLE color="black" bgcolor="none" BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4">
+  <TR>
+    <TD PORT="c"><FONT POINT-SIZE="12.0" COLOR="black">c</FONT></TD>
+    <TD ALIGN="CENTER" ROWSPAN="2"><FONT COLOR="black" POINT-SIZE="14.0">Enveloppe_3<BR/>(Enveloppe)</FONT></TD>
+    <TD PORT="o"><FONT POINT-SIZE="12.0" COLOR="black">o</FONT></TD>
+  </TR>
+<TR>
+<TD PORT="i"><FONT POINT-SIZE="12.0" COLOR="black">i</FONT></TD>
+
+ 
+<TD></TD></TR>
+
+</TABLE>>];
+
+Waveform4 [label=<
+<TABLE color="black" bgcolor="none" BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4">
+  <TR>
+    <TD ALIGN="CENTER" PORT="i"><FONT COLOR="black" POINT-SIZE="14.0">Waveform4<BR/>(Waveform)</FONT></TD>
+  </TR>
+</TABLE>>];
+
+
+Enveloppe_4 [label=<
+<TABLE color="black" bgcolor="none" BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4">
+  <TR>
+    <TD PORT="c"><FONT POINT-SIZE="12.0" COLOR="black">c</FONT></TD>
+    <TD ALIGN="CENTER" ROWSPAN="2"><FONT COLOR="black" POINT-SIZE="14.0">Enveloppe_4<BR/>(Enveloppe)</FONT></TD>
+    <TD PORT="o"><FONT POINT-SIZE="12.0" COLOR="black">o</FONT></TD>
+  </TR>
+<TR>
+<TD PORT="i"><FONT POINT-SIZE="12.0" COLOR="black">i</FONT></TD>
+
+ 
+<TD></TD></TR>
+
+</TABLE>>];
+
+Waveform5 [label=<
+<TABLE color="black" bgcolor="none" BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4">
+  <TR>
+    <TD ALIGN="CENTER" PORT="i"><FONT COLOR="black" POINT-SIZE="14.0">Waveform5<BR/>(Waveform)</FONT></TD>
+  </TR>
+</TABLE>>];
+
+
+Enveloppe_5 [label=<
+<TABLE color="black" bgcolor="none" BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4">
+  <TR>
+    <TD PORT="c"><FONT POINT-SIZE="12.0" COLOR="black">c</FONT></TD>
+    <TD ALIGN="CENTER" ROWSPAN="2"><FONT COLOR="black" POINT-SIZE="14.0">Enveloppe_5<BR/>(Enveloppe)</FONT></TD>
+    <TD PORT="o"><FONT POINT-SIZE="12.0" COLOR="black">o</FONT></TD>
+  </TR>
+<TR>
+<TD PORT="i"><FONT POINT-SIZE="12.0" COLOR="black">i</FONT></TD>
+
+ 
+<TD></TD></TR>
+
+</TABLE>>];
+
+
+arm_add_q152 [label=<
+<TABLE color="black" bgcolor="none" BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4">
+  <TR>
+    <TD PORT="ia"><FONT POINT-SIZE="12.0" COLOR="black">ia</FONT></TD>
+    <TD ALIGN="CENTER" ROWSPAN="2"><FONT COLOR="black" POINT-SIZE="14.0">arm_add_q15<BR/>(Function)</FONT></TD>
+    <TD PORT="o"><FONT POINT-SIZE="12.0" COLOR="black">o</FONT></TD>
+  </TR>
+<TR>
+<TD PORT="ib"><FONT POINT-SIZE="12.0" COLOR="black">ib</FONT></TD>
+
+ 
+<TD></TD></TR>
+
+</TABLE>>];
+
+
+arm_add_q153 [label=<
+<TABLE color="black" bgcolor="none" BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4">
+  <TR>
+    <TD PORT="ia"><FONT POINT-SIZE="12.0" COLOR="black">ia</FONT></TD>
+    <TD ALIGN="CENTER" ROWSPAN="2"><FONT COLOR="black" POINT-SIZE="14.0">arm_add_q15<BR/>(Function)</FONT></TD>
+    <TD PORT="o"><FONT POINT-SIZE="12.0" COLOR="black">o</FONT></TD>
+  </TR>
+<TR>
+<TD PORT="ib"><FONT POINT-SIZE="12.0" COLOR="black">ib</FONT></TD>
+
+ 
+<TD></TD></TR>
+
+</TABLE>>];
+
+
+arm_add_q154 [label=<
+<TABLE color="black" bgcolor="none" BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4">
+  <TR>
+    <TD PORT="ia"><FONT POINT-SIZE="12.0" COLOR="black">ia</FONT></TD>
+    <TD ALIGN="CENTER" ROWSPAN="2"><FONT COLOR="black" POINT-SIZE="14.0">arm_add_q15<BR/>(Function)</FONT></TD>
+    <TD PORT="o"><FONT POINT-SIZE="12.0" COLOR="black">o</FONT></TD>
+  </TR>
+<TR>
+<TD PORT="ib"><FONT POINT-SIZE="12.0" COLOR="black">ib</FONT></TD>
+
+ 
+<TD></TD></TR>
+
+</TABLE>>];
+
+
+arm_add_q155 [label=<
+<TABLE color="black" bgcolor="none" BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4">
+  <TR>
+    <TD PORT="ia"><FONT POINT-SIZE="12.0" COLOR="black">ia</FONT></TD>
+    <TD ALIGN="CENTER" ROWSPAN="2"><FONT COLOR="black" POINT-SIZE="14.0">arm_add_q15<BR/>(Function)</FONT></TD>
+    <TD PORT="o"><FONT POINT-SIZE="12.0" COLOR="black">o</FONT></TD>
+  </TR>
+<TR>
+<TD PORT="ib"><FONT POINT-SIZE="12.0" COLOR="black">ib</FONT></TD>
+
+ 
+<TD></TD></TR>
+
+</TABLE>>];
+
+
+arm_add_q151 [label=<
+<TABLE color="black" bgcolor="none" BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4">
+  <TR>
+    <TD PORT="ia"><FONT POINT-SIZE="12.0" COLOR="black">ia</FONT></TD>
+    <TD ALIGN="CENTER" ROWSPAN="2"><FONT COLOR="black" POINT-SIZE="14.0">arm_add_q15<BR/>(Function)</FONT></TD>
+    <TD PORT="o"><FONT POINT-SIZE="12.0" COLOR="black">o</FONT></TD>
+  </TR>
+<TR>
+<TD PORT="ib"><FONT POINT-SIZE="12.0" COLOR="black">ib</FONT></TD>
+
+ 
+<TD></TD></TR>
+
+</TABLE>>];
+
+ogain [label=<
+<TABLE color="black" bgcolor="none" BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4">
+  <TR>
+    <TD ALIGN="CENTER" PORT="i"><FONT COLOR="black" POINT-SIZE="14.0">ogain<BR/>(Gain)</FONT></TD>
+  </TR>
+</TABLE>>];
+
+audio [label=<
+<TABLE color="black" bgcolor="none" BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4">
+  <TR>
+    <TD ALIGN="CENTER" PORT="i"><FONT COLOR="black" POINT-SIZE="14.0">audio<BR/>(PWMAudio)</FONT></TD>
+  </TR>
+</TABLE>>];
+
+core1 [label=<
+<TABLE color="black" bgcolor="none" BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4">
+  <TR>
+    <TD ALIGN="CENTER" PORT="i"><FONT COLOR="black" POINT-SIZE="14.0">core1<BR/>(ToOtherCore)</FONT></TD>
+  </TR>
+</TABLE>>];
+
+
+
+NoteSequencer:A -> Waveform0:i [style="solid",color="black",label=""
+,headlabel=<<TABLE BORDER="0" CELLPADDING="2"><TR><TD><FONT COLOR="blue" POINT-SIZE="12.0" >1</FONT>
+</TD></TR></TABLE>>
+,taillabel=<<TABLE BORDER="0" CELLPADDING="2"><TR><TD><FONT COLOR="blue" POINT-SIZE="12.0" >1</FONT>
+</TD></TR></TABLE>>]
+
+NoteSequencer:A -> Enveloppe_0:c [style="solid",color="black",label=""
+,headlabel=<<TABLE BORDER="0" CELLPADDING="2"><TR><TD><FONT COLOR="blue" POINT-SIZE="12.0" >1</FONT>
+</TD></TR></TABLE>>
+,taillabel=<<TABLE BORDER="0" CELLPADDING="2"><TR><TD><FONT COLOR="blue" POINT-SIZE="12.0" >1</FONT>
+</TD></TR></TABLE>>]
+
+Waveform0:i -> Enveloppe_0:i [style="solid",color="black",label=""
+,headlabel=<<TABLE BORDER="0" CELLPADDING="2"><TR><TD><FONT COLOR="blue" POINT-SIZE="12.0" >128</FONT>
+</TD></TR></TABLE>>
+,taillabel=<<TABLE BORDER="0" CELLPADDING="2"><TR><TD><FONT COLOR="blue" POINT-SIZE="12.0" >128</FONT>
+</TD></TR></TABLE>>]
+
+NoteSequencer:B -> Waveform1:i [style="solid",color="black",label=""
+,headlabel=<<TABLE BORDER="0" CELLPADDING="2"><TR><TD><FONT COLOR="blue" POINT-SIZE="12.0" >1</FONT>
+</TD></TR></TABLE>>
+,taillabel=<<TABLE BORDER="0" CELLPADDING="2"><TR><TD><FONT COLOR="blue" POINT-SIZE="12.0" >1</FONT>
+</TD></TR></TABLE>>]
+
+NoteSequencer:B -> Enveloppe_1:c [style="solid",color="black",label=""
+,headlabel=<<TABLE BORDER="0" CELLPADDING="2"><TR><TD><FONT COLOR="blue" POINT-SIZE="12.0" >1</FONT>
+</TD></TR></TABLE>>
+,taillabel=<<TABLE BORDER="0" CELLPADDING="2"><TR><TD><FONT COLOR="blue" POINT-SIZE="12.0" >1</FONT>
+</TD></TR></TABLE>>]
+
+Waveform1:i -> Enveloppe_1:i [style="solid",color="black",label=""
+,headlabel=<<TABLE BORDER="0" CELLPADDING="2"><TR><TD><FONT COLOR="blue" POINT-SIZE="12.0" >128</FONT>
+</TD></TR></TABLE>>
+,taillabel=<<TABLE BORDER="0" CELLPADDING="2"><TR><TD><FONT COLOR="blue" POINT-SIZE="12.0" >128</FONT>
+</TD></TR></TABLE>>]
+
+NoteSequencer:C -> Waveform2:i [style="solid",color="black",label=""
+,headlabel=<<TABLE BORDER="0" CELLPADDING="2"><TR><TD><FONT COLOR="blue" POINT-SIZE="12.0" >1</FONT>
+</TD></TR></TABLE>>
+,taillabel=<<TABLE BORDER="0" CELLPADDING="2"><TR><TD><FONT COLOR="blue" POINT-SIZE="12.0" >1</FONT>
+</TD></TR></TABLE>>]
+
+NoteSequencer:C -> Enveloppe_2:c [style="solid",color="black",label=""
+,headlabel=<<TABLE BORDER="0" CELLPADDING="2"><TR><TD><FONT COLOR="blue" POINT-SIZE="12.0" >1</FONT>
+</TD></TR></TABLE>>
+,taillabel=<<TABLE BORDER="0" CELLPADDING="2"><TR><TD><FONT COLOR="blue" POINT-SIZE="12.0" >1</FONT>
+</TD></TR></TABLE>>]
+
+Waveform2:i -> Enveloppe_2:i [style="solid",color="black",label=""
+,headlabel=<<TABLE BORDER="0" CELLPADDING="2"><TR><TD><FONT COLOR="blue" POINT-SIZE="12.0" >128</FONT>
+</TD></TR></TABLE>>
+,taillabel=<<TABLE BORDER="0" CELLPADDING="2"><TR><TD><FONT COLOR="blue" POINT-SIZE="12.0" >128</FONT>
+</TD></TR></TABLE>>]
+
+NoteSequencer:D -> Waveform3:i [style="solid",color="black",label=""
+,headlabel=<<TABLE BORDER="0" CELLPADDING="2"><TR><TD><FONT COLOR="blue" POINT-SIZE="12.0" >1</FONT>
+</TD></TR></TABLE>>
+,taillabel=<<TABLE BORDER="0" CELLPADDING="2"><TR><TD><FONT COLOR="blue" POINT-SIZE="12.0" >1</FONT>
+</TD></TR></TABLE>>]
+
+NoteSequencer:D -> Enveloppe_3:c [style="solid",color="black",label=""
+,headlabel=<<TABLE BORDER="0" CELLPADDING="2"><TR><TD><FONT COLOR="blue" POINT-SIZE="12.0" >1</FONT>
+</TD></TR></TABLE>>
+,taillabel=<<TABLE BORDER="0" CELLPADDING="2"><TR><TD><FONT COLOR="blue" POINT-SIZE="12.0" >1</FONT>
+</TD></TR></TABLE>>]
+
+Waveform3:i -> Enveloppe_3:i [style="solid",color="black",label=""
+,headlabel=<<TABLE BORDER="0" CELLPADDING="2"><TR><TD><FONT COLOR="blue" POINT-SIZE="12.0" >128</FONT>
+</TD></TR></TABLE>>
+,taillabel=<<TABLE BORDER="0" CELLPADDING="2"><TR><TD><FONT COLOR="blue" POINT-SIZE="12.0" >128</FONT>
+</TD></TR></TABLE>>]
+
+NoteSequencer:E -> Waveform4:i [style="solid",color="black",label=""
+,headlabel=<<TABLE BORDER="0" CELLPADDING="2"><TR><TD><FONT COLOR="blue" POINT-SIZE="12.0" >1</FONT>
+</TD></TR></TABLE>>
+,taillabel=<<TABLE BORDER="0" CELLPADDING="2"><TR><TD><FONT COLOR="blue" POINT-SIZE="12.0" >1</FONT>
+</TD></TR></TABLE>>]
+
+NoteSequencer:E -> Enveloppe_4:c [style="solid",color="black",label=""
+,headlabel=<<TABLE BORDER="0" CELLPADDING="2"><TR><TD><FONT COLOR="blue" POINT-SIZE="12.0" >1</FONT>
+</TD></TR></TABLE>>
+,taillabel=<<TABLE BORDER="0" CELLPADDING="2"><TR><TD><FONT COLOR="blue" POINT-SIZE="12.0" >1</FONT>
+</TD></TR></TABLE>>]
+
+Waveform4:i -> Enveloppe_4:i [style="solid",color="black",label=""
+,headlabel=<<TABLE BORDER="0" CELLPADDING="2"><TR><TD><FONT COLOR="blue" POINT-SIZE="12.0" >128</FONT>
+</TD></TR></TABLE>>
+,taillabel=<<TABLE BORDER="0" CELLPADDING="2"><TR><TD><FONT COLOR="blue" POINT-SIZE="12.0" >128</FONT>
+</TD></TR></TABLE>>]
+
+NoteSequencer:F -> Waveform5:i [style="solid",color="black",label=""
+,headlabel=<<TABLE BORDER="0" CELLPADDING="2"><TR><TD><FONT COLOR="blue" POINT-SIZE="12.0" >1</FONT>
+</TD></TR></TABLE>>
+,taillabel=<<TABLE BORDER="0" CELLPADDING="2"><TR><TD><FONT COLOR="blue" POINT-SIZE="12.0" >1</FONT>
+</TD></TR></TABLE>>]
+
+NoteSequencer:F -> Enveloppe_5:c [style="solid",color="black",label=""
+,headlabel=<<TABLE BORDER="0" CELLPADDING="2"><TR><TD><FONT COLOR="blue" POINT-SIZE="12.0" >1</FONT>
+</TD></TR></TABLE>>
+,taillabel=<<TABLE BORDER="0" CELLPADDING="2"><TR><TD><FONT COLOR="blue" POINT-SIZE="12.0" >1</FONT>
+</TD></TR></TABLE>>]
+
+Waveform5:i -> Enveloppe_5:i [style="solid",color="black",label=""
+,headlabel=<<TABLE BORDER="0" CELLPADDING="2"><TR><TD><FONT COLOR="blue" POINT-SIZE="12.0" >128</FONT>
+</TD></TR></TABLE>>
+,taillabel=<<TABLE BORDER="0" CELLPADDING="2"><TR><TD><FONT COLOR="blue" POINT-SIZE="12.0" >128</FONT>
+</TD></TR></TABLE>>]
+
+Enveloppe_0:o -> arm_add_q152:ia [style="solid",color="black",label=""
+,headlabel=<<TABLE BORDER="0" CELLPADDING="2"><TR><TD><FONT COLOR="blue" POINT-SIZE="12.0" >128</FONT>
+</TD></TR></TABLE>>
+,taillabel=<<TABLE BORDER="0" CELLPADDING="2"><TR><TD><FONT COLOR="blue" POINT-SIZE="12.0" >128</FONT>
+</TD></TR></TABLE>>]
+
+Enveloppe_1:o -> arm_add_q152:ib [style="solid",color="black",label=""
+,headlabel=<<TABLE BORDER="0" CELLPADDING="2"><TR><TD><FONT COLOR="blue" POINT-SIZE="12.0" >128</FONT>
+</TD></TR></TABLE>>
+,taillabel=<<TABLE BORDER="0" CELLPADDING="2"><TR><TD><FONT COLOR="blue" POINT-SIZE="12.0" >128</FONT>
+</TD></TR></TABLE>>]
+
+arm_add_q152:o -> arm_add_q153:ia [style="solid",color="black",label=""
+,headlabel=<<TABLE BORDER="0" CELLPADDING="2"><TR><TD><FONT COLOR="blue" POINT-SIZE="12.0" >128</FONT>
+</TD></TR></TABLE>>
+,taillabel=<<TABLE BORDER="0" CELLPADDING="2"><TR><TD><FONT COLOR="blue" POINT-SIZE="12.0" >128</FONT>
+</TD></TR></TABLE>>]
+
+Enveloppe_2:o -> arm_add_q153:ib [style="solid",color="black",label=""
+,headlabel=<<TABLE BORDER="0" CELLPADDING="2"><TR><TD><FONT COLOR="blue" POINT-SIZE="12.0" >128</FONT>
+</TD></TR></TABLE>>
+,taillabel=<<TABLE BORDER="0" CELLPADDING="2"><TR><TD><FONT COLOR="blue" POINT-SIZE="12.0" >128</FONT>
+</TD></TR></TABLE>>]
+
+Enveloppe_3:o -> arm_add_q154:ia [style="solid",color="black",label=""
+,headlabel=<<TABLE BORDER="0" CELLPADDING="2"><TR><TD><FONT COLOR="blue" POINT-SIZE="12.0" >128</FONT>
+</TD></TR></TABLE>>
+,taillabel=<<TABLE BORDER="0" CELLPADDING="2"><TR><TD><FONT COLOR="blue" POINT-SIZE="12.0" >128</FONT>
+</TD></TR></TABLE>>]
+
+Enveloppe_4:o -> arm_add_q154:ib [style="solid",color="black",label=""
+,headlabel=<<TABLE BORDER="0" CELLPADDING="2"><TR><TD><FONT COLOR="blue" POINT-SIZE="12.0" >128</FONT>
+</TD></TR></TABLE>>
+,taillabel=<<TABLE BORDER="0" CELLPADDING="2"><TR><TD><FONT COLOR="blue" POINT-SIZE="12.0" >128</FONT>
+</TD></TR></TABLE>>]
+
+arm_add_q154:o -> arm_add_q155:ia [style="solid",color="black",label=""
+,headlabel=<<TABLE BORDER="0" CELLPADDING="2"><TR><TD><FONT COLOR="blue" POINT-SIZE="12.0" >128</FONT>
+</TD></TR></TABLE>>
+,taillabel=<<TABLE BORDER="0" CELLPADDING="2"><TR><TD><FONT COLOR="blue" POINT-SIZE="12.0" >128</FONT>
+</TD></TR></TABLE>>]
+
+Enveloppe_5:o -> arm_add_q155:ib [style="solid",color="black",label=""
+,headlabel=<<TABLE BORDER="0" CELLPADDING="2"><TR><TD><FONT COLOR="blue" POINT-SIZE="12.0" >128</FONT>
+</TD></TR></TABLE>>
+,taillabel=<<TABLE BORDER="0" CELLPADDING="2"><TR><TD><FONT COLOR="blue" POINT-SIZE="12.0" >128</FONT>
+</TD></TR></TABLE>>]
+
+arm_add_q153:o -> arm_add_q151:ia [style="solid",color="black",label=""
+,headlabel=<<TABLE BORDER="0" CELLPADDING="2"><TR><TD><FONT COLOR="blue" POINT-SIZE="12.0" >128</FONT>
+</TD></TR></TABLE>>
+,taillabel=<<TABLE BORDER="0" CELLPADDING="2"><TR><TD><FONT COLOR="blue" POINT-SIZE="12.0" >128</FONT>
+</TD></TR></TABLE>>]
+
+arm_add_q155:o -> arm_add_q151:ib [style="solid",color="black",label=""
+,headlabel=<<TABLE BORDER="0" CELLPADDING="2"><TR><TD><FONT COLOR="blue" POINT-SIZE="12.0" >128</FONT>
+</TD></TR></TABLE>>
+,taillabel=<<TABLE BORDER="0" CELLPADDING="2"><TR><TD><FONT COLOR="blue" POINT-SIZE="12.0" >128</FONT>
+</TD></TR></TABLE>>]
+
+arm_add_q151:o -> ogain:i [style="solid",color="black",label=""
+,headlabel=<<TABLE BORDER="0" CELLPADDING="2"><TR><TD><FONT COLOR="blue" POINT-SIZE="12.0" >128</FONT>
+</TD></TR></TABLE>>
+,taillabel=<<TABLE BORDER="0" CELLPADDING="2"><TR><TD><FONT COLOR="blue" POINT-SIZE="12.0" >128</FONT>
+</TD></TR></TABLE>>]
+
+ogain:i -> audio:i [style="solid",color="black",label=""
+,headlabel=<<TABLE BORDER="0" CELLPADDING="2"><TR><TD><FONT COLOR="blue" POINT-SIZE="12.0" >128</FONT>
+</TD></TR></TABLE>>
+,taillabel=<<TABLE BORDER="0" CELLPADDING="2"><TR><TD><FONT COLOR="blue" POINT-SIZE="12.0" >128</FONT>
+</TD></TR></TABLE>>]
+
+ogain:i -> core1:i [style="solid",color="black",label=""
+,headlabel=<<TABLE BORDER="0" CELLPADDING="2"><TR><TD><FONT COLOR="blue" POINT-SIZE="12.0" >128</FONT>
+</TD></TR></TABLE>>
+,taillabel=<<TABLE BORDER="0" CELLPADDING="2"><TR><TD><FONT COLOR="blue" POINT-SIZE="12.0" >128</FONT>
+</TD></TR></TABLE>>]
+
+
+}

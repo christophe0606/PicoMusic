@@ -1,0 +1,201 @@
+
+
+
+
+digraph structs {
+    bgcolor = "white"
+    node [shape=plaintext,color="black",fontcolor="black",fontname="Times-Roman"]
+    rankdir=LR
+    edge [arrowsize="0.5",color="black",fontcolor="black",fontname="Times-Roman"]
+
+
+
+FFTW [label=<
+<TABLE color="black" bgcolor="None" BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4">
+  <TR>
+    <TD PORT="fb"><FONT POINT-SIZE="12.0" COLOR="black">fb</FONT></TD>
+    <TD ALIGN="CENTER" ROWSPAN="2"><FONT COLOR="black" POINT-SIZE="14.0">FFTW<BR/>(BlockWidget)</FONT></TD>
+    <TD PORT="o"><FONT POINT-SIZE="12.0" COLOR="black">o</FONT></TD>
+  </TR>
+<TR>
+<TD PORT="i"><FONT POINT-SIZE="12.0" COLOR="black">i</FONT></TD>
+
+ 
+<TD></TD></TR>
+
+</TABLE>>];
+
+
+ampW [label=<
+<TABLE color="black" bgcolor="None" BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4">
+  <TR>
+    <TD PORT="fb"><FONT POINT-SIZE="12.0" COLOR="black">fb</FONT></TD>
+    <TD ALIGN="CENTER" ROWSPAN="2"><FONT COLOR="black" POINT-SIZE="14.0">ampW<BR/>(LineWidget)</FONT></TD>
+    <TD PORT="o"><FONT POINT-SIZE="12.0" COLOR="black">o</FONT></TD>
+  </TR>
+<TR>
+<TD PORT="i"><FONT POINT-SIZE="12.0" COLOR="black">i</FONT></TD>
+
+ 
+<TD></TD></TR>
+
+</TABLE>>];
+
+
+arm_mult_q151 [label=<
+<TABLE color="black" bgcolor="burlywood1" BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4">
+  <TR>
+    <TD PORT="ia"><FONT POINT-SIZE="12.0" COLOR="black">ia</FONT></TD>
+    <TD ALIGN="CENTER" ROWSPAN="2"><FONT COLOR="black" POINT-SIZE="14.0">arm_mult_q15<BR/>(Function)</FONT></TD>
+    <TD PORT="o"><FONT POINT-SIZE="12.0" COLOR="black">o</FONT></TD>
+  </TR>
+<TR>
+<TD PORT="ib"><FONT POINT-SIZE="12.0" COLOR="black">ib</FONT></TD>
+
+ 
+<TD></TD></TR>
+
+</TABLE>>];
+
+core0 [label=<
+<TABLE color="black" bgcolor="firebrick1" BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4">
+  <TR>
+    <TD ALIGN="CENTER" PORT="i"><FONT COLOR="black" POINT-SIZE="14.0">core0<BR/>(FromOtherCore)</FONT></TD>
+  </TR>
+</TABLE>>];
+
+decimateAmp [label=<
+<TABLE color="black" bgcolor="None" BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4">
+  <TR>
+    <TD ALIGN="CENTER" PORT="i"><FONT COLOR="black" POINT-SIZE="14.0">decimateAmp<BR/>(FilterAndDecimate)</FONT></TD>
+  </TR>
+</TABLE>>];
+
+decimateFFT [label=<
+<TABLE color="black" bgcolor="None" BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4">
+  <TR>
+    <TD ALIGN="CENTER" PORT="i"><FONT COLOR="black" POINT-SIZE="14.0">decimateFFT<BR/>(FilterAndDecimate)</FONT></TD>
+  </TR>
+</TABLE>>];
+
+dup0 [shape=point,label="dup0"]
+
+fb [label=<
+<TABLE color="black" bgcolor="None" BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4">
+  <TR>
+    <TD ALIGN="CENTER" PORT="i"><FONT COLOR="black" POINT-SIZE="14.0">fb<BR/>(ImageBuffer)</FONT></TD>
+  </TR>
+</TABLE>>];
+
+fft [label=<
+<TABLE color="black" bgcolor="None" BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4">
+  <TR>
+    <TD ALIGN="CENTER" PORT="i"><FONT COLOR="black" POINT-SIZE="14.0">fft<BR/>(CFFT)</FONT></TD>
+  </TR>
+</TABLE>>];
+
+fftMag [label=<
+<TABLE color="black" bgcolor="None" BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4">
+  <TR>
+    <TD ALIGN="CENTER" PORT="i"><FONT COLOR="black" POINT-SIZE="14.0">fftMag<BR/>(FFTAmplitude)</FONT></TD>
+  </TR>
+</TABLE>>];
+
+lcd [label=<
+<TABLE color="black" bgcolor="darkslategray1" BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4">
+  <TR>
+    <TD ALIGN="CENTER" PORT="i"><FONT COLOR="black" POINT-SIZE="14.0">lcd<BR/>(LCD)</FONT></TD>
+  </TR>
+</TABLE>>];
+
+toCmplx [label=<
+<TABLE color="black" bgcolor="None" BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4">
+  <TR>
+    <TD ALIGN="CENTER" PORT="i"><FONT COLOR="black" POINT-SIZE="14.0">toCmplx<BR/>(ToComplex)</FONT></TD>
+  </TR>
+</TABLE>>];
+
+
+
+decimateAmp:i -> ampW:i [style="solid",color="black",fontsize="12.0",fontcolor="black",label=<q15(256)>
+,headlabel=<<TABLE BORDER="0" CELLPADDING="4"><TR><TD><FONT COLOR="blue" POINT-SIZE="12.0" >256</FONT>
+</TD></TR></TABLE>>
+,taillabel=<<TABLE BORDER="0" CELLPADDING="4"><TR><TD><FONT COLOR="blue" POINT-SIZE="12.0" >8</FONT>
+</TD></TR></TABLE>>]
+
+fb:i -> ampW:fb [style="solid",color="black",fontsize="12.0",fontcolor="black",label=<image_t(1)>
+,headlabel=<<TABLE BORDER="0" CELLPADDING="4"><TR><TD><FONT COLOR="blue" POINT-SIZE="12.0" >1</FONT>
+</TD></TR></TABLE>>
+,taillabel=<<TABLE BORDER="0" CELLPADDING="4"><TR><TD><FONT COLOR="blue" POINT-SIZE="12.0" >1</FONT>
+</TD></TR></TABLE>>]
+
+decimateFFT:i -> arm_mult_q151:ia [style="solid",color="black",fontsize="12.0",fontcolor="black",label=<q15(256)>
+,headlabel=<<TABLE BORDER="0" CELLPADDING="4"><TR><TD><FONT COLOR="blue" POINT-SIZE="12.0" >256</FONT>
+</TD></TR></TABLE>>
+,taillabel=<<TABLE BORDER="0" CELLPADDING="4"><TR><TD><FONT COLOR="blue" POINT-SIZE="12.0" >8</FONT>
+</TD></TR></TABLE>>]
+
+arm_mult_q151:o -> toCmplx:i [style="solid",color="black",fontsize="12.0",fontcolor="black",label=<q15(256)>
+,headlabel=<<TABLE BORDER="0" CELLPADDING="4"><TR><TD><FONT COLOR="blue" POINT-SIZE="12.0" >256</FONT>
+</TD></TR></TABLE>>
+,taillabel=<<TABLE BORDER="0" CELLPADDING="4"><TR><TD><FONT COLOR="blue" POINT-SIZE="12.0" >256</FONT>
+</TD></TR></TABLE>>]
+
+toCmplx:i -> fft:i [style="solid",color="black",fontsize="12.0",fontcolor="black",label=<q15(512)>
+,headlabel=<<TABLE BORDER="0" CELLPADDING="4"><TR><TD><FONT COLOR="blue" POINT-SIZE="12.0" >512</FONT>
+</TD></TR></TABLE>>
+,taillabel=<<TABLE BORDER="0" CELLPADDING="4"><TR><TD><FONT COLOR="blue" POINT-SIZE="12.0" >512</FONT>
+</TD></TR></TABLE>>]
+
+fft:i -> fftMag:i [style="solid",color="black",fontsize="12.0",fontcolor="black",label=<q15(512)>
+,headlabel=<<TABLE BORDER="0" CELLPADDING="4"><TR><TD><FONT COLOR="blue" POINT-SIZE="12.0" >512</FONT>
+</TD></TR></TABLE>>
+,taillabel=<<TABLE BORDER="0" CELLPADDING="4"><TR><TD><FONT COLOR="blue" POINT-SIZE="12.0" >512</FONT>
+</TD></TR></TABLE>>]
+
+fftMag:i -> FFTW:i [style="solid",color="black",fontsize="12.0",fontcolor="black",label=<q15(256)>
+,headlabel=<<TABLE BORDER="0" CELLPADDING="4"><TR><TD><FONT COLOR="blue" POINT-SIZE="12.0" >256</FONT>
+</TD></TR></TABLE>>
+,taillabel=<<TABLE BORDER="0" CELLPADDING="4"><TR><TD><FONT COLOR="blue" POINT-SIZE="12.0" >256</FONT>
+</TD></TR></TABLE>>]
+
+ampW:o -> FFTW:fb [style="solid",color="black",fontsize="12.0",fontcolor="black",label=<image_t(1)>
+,headlabel=<<TABLE BORDER="0" CELLPADDING="4"><TR><TD><FONT COLOR="blue" POINT-SIZE="12.0" >1</FONT>
+</TD></TR></TABLE>>
+,taillabel=<<TABLE BORDER="0" CELLPADDING="4"><TR><TD><FONT COLOR="blue" POINT-SIZE="12.0" >1</FONT>
+</TD></TR></TABLE>>]
+
+FFTW:o -> lcd:i [style="solid",color="black",fontsize="12.0",fontcolor="black",label=<image_t(1)>
+,headlabel=<<TABLE BORDER="0" CELLPADDING="4"><TR><TD><FONT COLOR="blue" POINT-SIZE="12.0" >1</FONT>
+</TD></TR></TABLE>>
+,taillabel=<<TABLE BORDER="0" CELLPADDING="4"><TR><TD><FONT COLOR="blue" POINT-SIZE="12.0" >1</FONT>
+</TD></TR></TABLE>>]
+
+core0:i ->  
+dup0 [style="solid",color="black",fontsize="12.0",fontcolor="black",label=<q15(128)>
+
+,taillabel=<<TABLE BORDER="0" CELLPADDING="4"><TR><TD><FONT COLOR="blue" POINT-SIZE="12.0" >128</FONT>
+</TD></TR></TABLE>>]
+
+ 
+dup0 -> decimateAmp:i [style="solid",color="black",fontsize="12.0",fontcolor="black",label=<q15(128)>
+,headlabel=<<TABLE BORDER="0" CELLPADDING="4"><TR><TD><FONT COLOR="blue" POINT-SIZE="12.0" >128</FONT>
+</TD></TR></TABLE>>
+]
+
+ 
+dup0 -> decimateFFT:i [style="solid",color="black",fontsize="12.0",fontcolor="black",label=<q15(128)>
+,headlabel=<<TABLE BORDER="0" CELLPADDING="4"><TR><TD><FONT COLOR="blue" POINT-SIZE="12.0" >128</FONT>
+</TD></TR></TABLE>>
+]
+
+hanningQ15 [label=<
+<TABLE color="black" bgcolor="none" BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4">
+  <TR>
+    <TD ALIGN="CENTER" PORT="i"><FONT COLOR="black" POINT-SIZE="14.0">hanningQ15</FONT></TD>
+  </TR>
+</TABLE>>];
+
+hanningQ15:i -> arm_mult_q151:ib
+ [style="solid",color="black"]
+}
