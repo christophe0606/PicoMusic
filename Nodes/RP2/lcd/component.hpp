@@ -4,6 +4,9 @@
  * Copyright (c) 2020 Raspberry Pi (Trading) Ltd.
  *
  * SPDX-License-Identifier: BSD-3-Clause
+ * 
+ * pico-example/pio/st7789_lcd example 
+ * modified by Arm for integration in CMSIS-Stream
  */
 
 

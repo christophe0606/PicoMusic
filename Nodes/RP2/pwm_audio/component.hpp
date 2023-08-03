@@ -1,5 +1,15 @@
 #pragma once
 
+/**
+ * Copyright (c) 2020 Raspberry Pi (Trading) Ltd.
+ *
+ * SPDX-License-Identifier: BSD-3-Clause
+ * 
+ * pico-playground/audio/sine_wave example
+ * modified by Arm for integration in CMSIS-Stream
+ * and to become a generic PWM audio sink.
+ */
+
 #include "pico/audio_pwm.h"
 
 
