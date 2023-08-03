@@ -138,17 +138,10 @@ public:
                         else
                         {
                            val1 = waveform[index1];
-                           #if 0
-                           val2 = waveform[index2];
-                           frac = (phase & 0x3FFF) << 14;
-                           #if defined (ARM_MATH_DSP)
-                             d = (q15_t) __QSUB16(val2, val1);
-                           #else
-                             d = (q15_t) __SSAT(((q31_t) val2 - val1), 16);
-                           #endif
-                           d = (frac * d) >> 24;
-                           d = val1 + d;
-                           #endif
+                           // The Pico HW interpolator could be used
+                           // here to interpolate between sample at index1
+                           // and index2 using the fractional part of the
+                           // phase increment
                            b[i] = __SSAT((val1 * magnitude) >> 15,16);
                         }
                         phase = (phase + mPhaseIncrement);
@@ -164,20 +157,10 @@ public:
                     for(int i=0;i<outputSize;i++)
                     {
                         val1 = waveform[phase>>24];
-                        #if 0
-                        // Underflow with this code.
-                        // SHould try to use the interpolator block
-                        val2 = waveform[1 + (phase>>24)];
-                        frac = (phase & 0xFFFFF) << 8;
-                        #if defined (ARM_MATH_DSP)
-                          d = (q15_t) __QSUB16(val2, val1);
-                        #else
-                          d = (q15_t) __SSAT(((q31_t) val2 - val1), 16);
-                        #endif
-                        d = __SSAT((frac * d) >> 24,16);
-                        d = val1 + d;
-                        b[i] = __SSAT(((q31_t)d * magnitude) >> 15,16);
-                        #endif
+                        // The Pico HW interpolator could be used
+                        // here to interpolate between sample at index1
+                        // and index2 using the fractional part of the
+                        // phase increment
                         b[i] = __SSAT(((q31_t)val1 * magnitude) >> 15,16);
             
                         phase = (phase + mPhaseIncrement);

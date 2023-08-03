@@ -20,7 +20,7 @@ CONFIG="""#ifndef _AUDIO_PYTHON_GRAPH_CONFIG_H_
 #endif
 """
 
-with open("Configuration/audio_python_graph_config.h","w") as f:
+with open("Configuration/Includes/audio_python_graph_config.h","w") as f:
     print(CONFIG % (AUDIO_BLOCK_LENGTH,), file=f)
 
 def mixing(g,nodes):

@@ -27,14 +27,11 @@ while(abs(GRAPH_INPUT - NB_SAMPLES) > 512):
 
 print(f"Refresh rate of LCD graph is {GRAPH_INPUT/SAMPLING_FREQ*1000} ms")
 
-# Number of samples for amplitude widget
-AMP_OUTPUT = 256
+
 
 AMPLITUDE_DECIMATE_FACTOR = GRAPH_INPUT // AMP_OUTPUT
 print(f"Amplitude decimation factor = {AMPLITUDE_DECIMATE_FACTOR}")
 
-# FFTSIZE
-FFTSIZE = 256
 
 FFT_DECIMATE_FACTOR = GRAPH_INPUT // FFTSIZE
 print(f"FFT decimation factor = {FFT_DECIMATE_FACTOR}")
@@ -49,7 +46,7 @@ CONFIG="""#ifndef _LCD_PYTHON_GRAPH_CONFIG_H_
 #endif
 """
 
-with open("Configuration/lcd_python_graph_config.h","w") as f:
+with open("Configuration/Includes/lcd_python_graph_config.h","w") as f:
     print(CONFIG % (FFTSIZE,AUDIO_BLOCK_LENGTH), file=f)
 
 hann=Constant("hanningQ15")
@@ -58,11 +55,9 @@ win = Binary("arm_mult_q15",CType(Q15),FFTSIZE)
 core0 = FromOtherCore("core0",CType(Q15),AUDIO_BLOCK_LENGTH,
                       queue="audio_queue",
                       blocking=True)
-# increase the size from 2048 to higher to
-# refresh LCD less often
-#decimateForAmp = Decimate("decimateAmp",CType(Q15),NB,NB//AMPLITUDE_DECIMATE_FACTOR)
-#decimateForFFT = Decimate("decimateFFT",CType(Q15),NB,NB//FFT_DECIMATE_FACTOR)
 
+# If you cange the decimation ratio, you'll need to use a different
+# filter
 decimateForAmp = FilterAndDecimate("decimateAmp",CType(Q15),
     AUDIO_BLOCK_LENGTH,AUDIO_BLOCK_LENGTH//AMPLITUDE_DECIMATE_FACTOR,
     "nbTaps","coefs")
@@ -76,14 +71,8 @@ fb = ImageBuffer("fb",WIDTH,HEIGHT,
     texture_width=99,
     texture_height=240)
 
-# audio real-time broken with the texture
-#fb = ImageBuffer("fb",WIDTH,HEIGHT)
-
-BLUE = 0x001F
-RED = 0xF800
-
-ampW = LineWidget("ampW",AMP_OUTPUT,color=BLUE)
-FFTW = BlockWidget("FFTW",FFTSIZE,120,color=RED)
+ampW = LineWidget("ampW",AMP_OUTPUT,color=AMP_COLOR)
+FFTW = BlockWidget("FFTW",FFTSIZE,120,color=FFT_COLOR)
 lcd = LCD("lcd")
 
 toCmplx=ToComplex("toCmplx",CType(Q15),FFTSIZE)

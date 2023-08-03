@@ -42,7 +42,7 @@ target_include_directories(stream PUBLIC .
     ${STREAM}/Include/cg/nodes/cpp
     App/Includes
     Nodes 
-    Configuration 
+    Configuration/Includes
     AudioGraph
     LCDGraph
     Songs

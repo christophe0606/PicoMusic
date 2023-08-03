@@ -27,7 +27,7 @@
 #include "LCDGraph/lcd_scheduler.h"
 
 
-#include "Configuration/lcd_python_graph_config.h"
+#include "lcd_python_graph_config.h"
 #include "Nodes/RP2/pwm_audio/c_component.h"
 #include "Songs/songs.h"
 
