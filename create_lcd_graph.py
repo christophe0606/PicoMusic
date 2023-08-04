@@ -134,8 +134,8 @@ print("Memory usage %d bytes" % sched.memory)
 
 sched.ccode("LCDGraph",conf)
 
-#generateGenericNodes(".")
-#generateCGStatus(".")
+#generateGenericNodes("./App/Includes")
+#generateCGStatus("./App/Includes")
 
 class MyStyle(Style):
     def node_color(self,node):

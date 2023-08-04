@@ -61,6 +61,7 @@ target_link_libraries(stream
     pico_stdlib 
     pico_audio_pwm
     pico_multicore
+    hardware_pio
     hardware_dma 
     hardware_adc
     hardware_irq
