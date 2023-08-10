@@ -65,6 +65,7 @@ target_link_libraries(stream
     hardware_dma 
     hardware_adc
     hardware_irq
+    hardware_interp
     hardware_clocks
     CMSISDSP
     )
