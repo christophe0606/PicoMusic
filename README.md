@@ -13,7 +13,7 @@ The LCD graph is reading the audio data and generating a framebuffer to display 
 
 [Arm-2D](https://github.com/ARM-software/Arm-2D) is used to compose the UI and generate the content of the layers.
 
-![PicoMusic](Documentation/PicoMusic.jpg)
+<img src="Documentation/PicoMusic.jpg" alt="PicoMusic" style="zoom: 25%;" />
 
 
 
