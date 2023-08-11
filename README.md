@@ -11,17 +11,29 @@ The audio graph is synthesizing the sound and sending it to the PWM driver and C
 
 The LCD graph is reading the audio data and generating a framebuffer to display a spectrum, amplitude and texture background (with some animation and blending).
 
-[Arm-2D](https://github.com/ARM-software/Arm-2D) is not yet integrated.
+[Arm-2D](https://github.com/ARM-software/Arm-2D) is used to compose the UI and generate the content of the layers.
 
 ![PicoMusic](Documentation/PicoMusic.jpg)
 
-https://github.com/christophe0606/PicoMusic/assets/48906714/ff16c501-edd5-4abd-ae0b-3ffc5eb22457
+
 
 ## Audio graph
+
+The song used for this example has only 6 channels so we have used 6 in the graph. But it is configurable in the Python and can have as many channels as needed.
+
+When a channel is not used by a song it has a low overhead (but memory copies are still occuring because buffers can be shared between different "FIFOs" for memory optimization purposes).
+
+
 
 ![audio_graph](Pictures/audio_graph.svg)
 
 ## LCD Graph
+
+Widgets are drawing into a layer using some Arm-2D functions.
+
+The layers are then composed by the Arm-2D node to render the final screen on the LCD.
+
+Signal is decimated because we only have 240 samples to display and also to avoid having a too high refresh rate.
 
 ![lcd_graph](Pictures/lcd_graph.svg)
 
@@ -48,24 +60,27 @@ First, you need to be able to build the Pico examples and have the pico-extra si
 ```shell
 mkdir build.tmp
 cd build.tmp
-cmake -DDSP=/root/CMSIS-DSP \
-  -DSTREAM=/root/CMSIS-Stream \
-  -DCMSISCORE=/root/CMSIS_5/CMSIS/Core \
-  ..
+cmake -DARM2D=/ArmSoftware/Arm-2D \
+ -DCMSISDSP=/ArmSoftware/CMSIS-DSP \
+ -DCMSISCORE=/ArmSoftware/CMSIS_5/CMSIS/Core \
+ -DARM2D_RP2040=/ArmSoftware/Arm2D_RP2040/RP2040 \
+ -DHOST=NO ..
 make
 ```
 
-Where `root` is the path where you have installed the CMSIS libraries.
+Where `ArmSoftware` is the path where you have installed the Arm libraries.
 
-You can clone the CMSIS libraries with:
+You can clone the Arm libraries with:
 
 ```shell
 git clone https://github.com/ARM-software/CMSIS-DSP.git
 git clone https://github.com/ARM-software/CMSIS-Stream.git
 git clone https://github.com/ARM-software/CMSIS_5.git
+git clone https://github.com/ARM-software/Arm-2D.git
+git clone https://github.com/christophe0606/Arm2D_RP2040
 ```
 
-
+The last project is providing RP2040 specific optimizations for Arm-2D and is also providing a CMakeLists.txt to make it easier to build Arm-2D + CMSIS-DSP in the Pico environment.
 
 ## Copyright and licensing information
 
@@ -80,7 +95,7 @@ Playtune_synth files are covered by their original MIT license.
 
 ## Pico SDK and Extras
 
-The LCD Node is based upon an example of PIO driver from the Pico examples. The example has been modified to be integrated in CMSIS-Stream.
+The Arm2D_RP2040 project is based upon an example of PIO driver from the Pico examples. The example has been modified to be integrated in CMSIS-Stream.
 
 It is Copyright (c) 2020 Raspberry Pi (Trading) Ltd and covered by a BSD-3 license.
 
