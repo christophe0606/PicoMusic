@@ -17,6 +17,10 @@ The LCD graph is reading the audio data and generating a framebuffer to display 
 
 
 
+https://github.com/christophe0606/PicoMusic/assets/48906714/b5b29c64-6573-45c1-aa49-301c525b5d82
+
+
+
 ## Audio graph
 
 The song used for this example has only 6 channels so we have used 6 in the graph. But it is configurable in the Python and can have as many channels as needed.
