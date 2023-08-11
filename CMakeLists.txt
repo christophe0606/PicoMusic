@@ -42,7 +42,7 @@ add_executable(stream
         )
 
 target_include_directories(stream PUBLIC . 
-    ${STREAM}/Include/cg/nodes/cpp
+    ${CMSISSTREAM}/Include/cg/nodes/cpp
     App/Includes
     Nodes
     Nodes/Arm2D/Layer

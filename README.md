@@ -66,6 +66,7 @@ mkdir build.tmp
 cd build.tmp
 cmake -DARM2D=/ArmSoftware/Arm-2D \
  -DCMSISDSP=/ArmSoftware/CMSIS-DSP \
+ -DCMSISSTREAM=/ArmSoftware/CMSIS-Stream \
  -DCMSISCORE=/ArmSoftware/CMSIS_5/CMSIS/Core \
  -DARM2D_RP2040=/ArmSoftware/Arm2D_RP2040/RP2040 \
  -DHOST=NO ..
