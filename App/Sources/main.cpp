@@ -31,10 +31,17 @@
 #include "Nodes/RP2/pwm_audio/c_component.h"
 #include "Songs/songs.h"
 
+/* start_lcd() */
+extern "C" {
+#include "st7789_lcd.h"
+
+#include "arm_2d_helper.h"
+#include "arm_2d_disp_adapters.h"
+}
+
 queue_t audio_queue;
 q15_t hanningQ15[FFTSIZE];
 float hanning[FFTSIZE];
-extern const q15_t cmsis_texture[57600];
 #define NB_TAPS 5
 // 0.2 ...
 const q15_t coefs[NB_TAPS]={6553,6553,6553,6553,6553};
@@ -46,9 +53,9 @@ void lcd_graph()
     int error=CG_SUCCESS;
     uint32_t nbSched = 0;
 
-    error = init_lcd_scheduler(&audio_queue,cmsis_texture,NB_TAPS,coefs);
-    nbSched=lcd_scheduler(&error,&audio_queue,cmsis_texture,NB_TAPS,coefs);
-    free_lcd_scheduler(&audio_queue,cmsis_texture,NB_TAPS,coefs);
+    error = init_lcd_scheduler(&audio_queue,NB_TAPS,coefs);
+    nbSched=lcd_scheduler(&error,&audio_queue,NB_TAPS,coefs);
+    free_lcd_scheduler(&audio_queue,NB_TAPS,coefs);
 
     printf("End LCD graph : nb=%d, err=%d\n",nbSched,error);
 
@@ -59,6 +66,14 @@ uint32_t offState=0;
 int main() {
     stdio_init_all();
     sleep_ms(2000);
+
+    start_lcd();
+
+    arm_irq_safe {
+        arm_2d_init();
+    }
+
+    disp_adapter0_init();
 
 #ifdef DEBUG_TRACE
     printf("Beep boop, listening...\n");

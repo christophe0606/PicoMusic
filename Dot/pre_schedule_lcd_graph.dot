@@ -25,26 +25,19 @@ decimateAmp [label=<
 </TABLE>>];
 
 
-ampW [label=<
+amp [label=<
 <TABLE color="black" bgcolor="none" BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4">
   <TR>
-    <TD PORT="fb"><FONT POINT-SIZE="12.0" COLOR="black">fb</FONT></TD>
-    <TD ALIGN="CENTER" ROWSPAN="2"><FONT COLOR="black" POINT-SIZE="14.0">ampW<BR/>(LineWidget)</FONT></TD>
+    <TD PORT="i"><FONT POINT-SIZE="12.0" COLOR="black">i</FONT></TD>
+    <TD ALIGN="CENTER" ROWSPAN="2"><FONT COLOR="black" POINT-SIZE="14.0">amp<BR/>(AmplitudeWidget)</FONT></TD>
     <TD PORT="o"><FONT POINT-SIZE="12.0" COLOR="black">o</FONT></TD>
   </TR>
 <TR>
-<TD PORT="i"><FONT POINT-SIZE="12.0" COLOR="black">i</FONT></TD>
+<TD PORT="l"><FONT POINT-SIZE="12.0" COLOR="black">l</FONT></TD>
 
  
 <TD></TD></TR>
 
-</TABLE>>];
-
-fb [label=<
-<TABLE color="black" bgcolor="none" BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4">
-  <TR>
-    <TD ALIGN="CENTER" PORT="i"><FONT COLOR="black" POINT-SIZE="14.0">fb<BR/>(ImageBuffer)</FONT></TD>
-  </TR>
 </TABLE>>];
 
 decimateFFT [label=<
@@ -92,26 +85,67 @@ fftMag [label=<
 </TABLE>>];
 
 
-FFTW [label=<
+spectrum [label=<
 <TABLE color="black" bgcolor="none" BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4">
   <TR>
-    <TD PORT="fb"><FONT POINT-SIZE="12.0" COLOR="black">fb</FONT></TD>
-    <TD ALIGN="CENTER" ROWSPAN="2"><FONT COLOR="black" POINT-SIZE="14.0">FFTW<BR/>(BlockWidget)</FONT></TD>
+    <TD PORT="i"><FONT POINT-SIZE="12.0" COLOR="black">i</FONT></TD>
+    <TD ALIGN="CENTER" ROWSPAN="2"><FONT COLOR="black" POINT-SIZE="14.0">spectrum<BR/>(SpectrumWidget)</FONT></TD>
     <TD PORT="o"><FONT POINT-SIZE="12.0" COLOR="black">o</FONT></TD>
   </TR>
 <TR>
-<TD PORT="i"><FONT POINT-SIZE="12.0" COLOR="black">i</FONT></TD>
+<TD PORT="l"><FONT POINT-SIZE="12.0" COLOR="black">l</FONT></TD>
 
  
 <TD></TD></TR>
 
 </TABLE>>];
 
-lcd [label=<
+ampLayer [label=<
 <TABLE color="black" bgcolor="none" BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4">
   <TR>
-    <TD ALIGN="CENTER" PORT="i"><FONT COLOR="black" POINT-SIZE="14.0">lcd<BR/>(LCD)</FONT></TD>
+    <TD ALIGN="CENTER" PORT="i"><FONT COLOR="black" POINT-SIZE="14.0">ampLayer<BR/>(Layer)</FONT></TD>
   </TR>
+</TABLE>>];
+
+fftLayer [label=<
+<TABLE color="black" bgcolor="none" BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4">
+  <TR>
+    <TD ALIGN="CENTER" PORT="i"><FONT COLOR="black" POINT-SIZE="14.0">fftLayer<BR/>(Layer)</FONT></TD>
+  </TR>
+</TABLE>>];
+
+cmsis [label=<
+<TABLE color="black" bgcolor="none" BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4">
+  <TR>
+    <TD ALIGN="CENTER" PORT="i"><FONT COLOR="black" POINT-SIZE="14.0">cmsis<BR/>(ROLayer)</FONT></TD>
+  </TR>
+</TABLE>>];
+
+animate [label=<
+<TABLE color="black" bgcolor="none" BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4">
+  <TR>
+    <TD ALIGN="CENTER" PORT="i"><FONT COLOR="black" POINT-SIZE="14.0">animate<BR/>(Animate)</FONT></TD>
+  </TR>
+</TABLE>>];
+
+
+Compositor [label=<
+<TABLE color="black" bgcolor="none" BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4">
+  <TR>
+    <TD PORT="A"><FONT POINT-SIZE="12.0" COLOR="black">A</FONT></TD>
+    <TD ALIGN="CENTER" ROWSPAN="3"><FONT COLOR="black" POINT-SIZE="14.0">Compositor<BR/>(Arm2D)</FONT></TD>
+    <TD></TD>
+  </TR>
+<TR>
+<TD PORT="B"><FONT POINT-SIZE="12.0" COLOR="black">B</FONT></TD>
+
+ 
+<TD></TD></TR><TR>
+<TD PORT="C"><FONT POINT-SIZE="12.0" COLOR="black">C</FONT></TD>
+
+ 
+<TD></TD></TR>
+
 </TABLE>>];
 
 
@@ -122,16 +156,10 @@ core0:i -> decimateAmp:i [style="solid",color="black",label=""
 ,taillabel=<<TABLE BORDER="0" CELLPADDING="2"><TR><TD><FONT COLOR="blue" POINT-SIZE="12.0" >128</FONT>
 </TD></TR></TABLE>>]
 
-decimateAmp:i -> ampW:i [style="solid",color="black",label=""
+decimateAmp:i -> amp:i [style="solid",color="black",label=""
 ,headlabel=<<TABLE BORDER="0" CELLPADDING="2"><TR><TD><FONT COLOR="blue" POINT-SIZE="12.0" >256</FONT>
 </TD></TR></TABLE>>
 ,taillabel=<<TABLE BORDER="0" CELLPADDING="2"><TR><TD><FONT COLOR="blue" POINT-SIZE="12.0" >8</FONT>
-</TD></TR></TABLE>>]
-
-fb:i -> ampW:fb [style="solid",color="black",label=""
-,headlabel=<<TABLE BORDER="0" CELLPADDING="2"><TR><TD><FONT COLOR="blue" POINT-SIZE="12.0" >1</FONT>
-</TD></TR></TABLE>>
-,taillabel=<<TABLE BORDER="0" CELLPADDING="2"><TR><TD><FONT COLOR="blue" POINT-SIZE="12.0" >1</FONT>
 </TD></TR></TABLE>>]
 
 core0:i -> decimateFFT:i [style="solid",color="black",label=""
@@ -164,19 +192,43 @@ fft:i -> fftMag:i [style="solid",color="black",label=""
 ,taillabel=<<TABLE BORDER="0" CELLPADDING="2"><TR><TD><FONT COLOR="blue" POINT-SIZE="12.0" >512</FONT>
 </TD></TR></TABLE>>]
 
-fftMag:i -> FFTW:i [style="solid",color="black",label=""
-,headlabel=<<TABLE BORDER="0" CELLPADDING="2"><TR><TD><FONT COLOR="blue" POINT-SIZE="12.0" >256</FONT>
+fftMag:i -> spectrum:i [style="solid",color="black",label=""
+,headlabel=<<TABLE BORDER="0" CELLPADDING="2"><TR><TD><FONT COLOR="blue" POINT-SIZE="12.0" >128</FONT>
 </TD></TR></TABLE>>
-,taillabel=<<TABLE BORDER="0" CELLPADDING="2"><TR><TD><FONT COLOR="blue" POINT-SIZE="12.0" >256</FONT>
+,taillabel=<<TABLE BORDER="0" CELLPADDING="2"><TR><TD><FONT COLOR="blue" POINT-SIZE="12.0" >128</FONT>
 </TD></TR></TABLE>>]
 
-ampW:o -> FFTW:fb [style="solid",color="black",label=""
+ampLayer:i -> amp:l [style="solid",color="black",label=""
 ,headlabel=<<TABLE BORDER="0" CELLPADDING="2"><TR><TD><FONT COLOR="blue" POINT-SIZE="12.0" >1</FONT>
 </TD></TR></TABLE>>
 ,taillabel=<<TABLE BORDER="0" CELLPADDING="2"><TR><TD><FONT COLOR="blue" POINT-SIZE="12.0" >1</FONT>
 </TD></TR></TABLE>>]
 
-FFTW:o -> lcd:i [style="solid",color="black",label=""
+fftLayer:i -> spectrum:l [style="solid",color="black",label=""
+,headlabel=<<TABLE BORDER="0" CELLPADDING="2"><TR><TD><FONT COLOR="blue" POINT-SIZE="12.0" >1</FONT>
+</TD></TR></TABLE>>
+,taillabel=<<TABLE BORDER="0" CELLPADDING="2"><TR><TD><FONT COLOR="blue" POINT-SIZE="12.0" >1</FONT>
+</TD></TR></TABLE>>]
+
+cmsis:i -> animate:i [style="solid",color="black",label=""
+,headlabel=<<TABLE BORDER="0" CELLPADDING="2"><TR><TD><FONT COLOR="blue" POINT-SIZE="12.0" >1</FONT>
+</TD></TR></TABLE>>
+,taillabel=<<TABLE BORDER="0" CELLPADDING="2"><TR><TD><FONT COLOR="blue" POINT-SIZE="12.0" >1</FONT>
+</TD></TR></TABLE>>]
+
+amp:o -> Compositor:A [style="solid",color="black",label=""
+,headlabel=<<TABLE BORDER="0" CELLPADDING="2"><TR><TD><FONT COLOR="blue" POINT-SIZE="12.0" >1</FONT>
+</TD></TR></TABLE>>
+,taillabel=<<TABLE BORDER="0" CELLPADDING="2"><TR><TD><FONT COLOR="blue" POINT-SIZE="12.0" >1</FONT>
+</TD></TR></TABLE>>]
+
+spectrum:o -> Compositor:B [style="solid",color="black",label=""
+,headlabel=<<TABLE BORDER="0" CELLPADDING="2"><TR><TD><FONT COLOR="blue" POINT-SIZE="12.0" >1</FONT>
+</TD></TR></TABLE>>
+,taillabel=<<TABLE BORDER="0" CELLPADDING="2"><TR><TD><FONT COLOR="blue" POINT-SIZE="12.0" >1</FONT>
+</TD></TR></TABLE>>]
+
+animate:i -> Compositor:C [style="solid",color="black",label=""
 ,headlabel=<<TABLE BORDER="0" CELLPADDING="2"><TR><TD><FONT COLOR="blue" POINT-SIZE="12.0" >1</FONT>
 </TD></TR></TABLE>>
 ,taillabel=<<TABLE BORDER="0" CELLPADDING="2"><TR><TD><FONT COLOR="blue" POINT-SIZE="12.0" >1</FONT>

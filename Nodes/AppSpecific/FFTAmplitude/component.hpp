@@ -7,14 +7,17 @@ template<typename IN,int inputSize,
          typename OUT,int outputSize>
 class FFTAmplitude;
 
+/* FFT spectrum in complex to half FFT amplitude
+because the conjugate part is ignored.
+*/
 template<int ioSize>
-class FFTAmplitude<q15_t,2*ioSize,q15_t,ioSize>:
-public GenericNode<q15_t,2*ioSize,
+class FFTAmplitude<q15_t,4*ioSize,q15_t,ioSize>:
+public GenericNode<q15_t,4*ioSize,
                    q15_t,ioSize>
 {
 public:
     FFTAmplitude(FIFOBase<q15_t> &src,FIFOBase<q15_t> &dst):
-    GenericNode<q15_t,2*ioSize,q15_t,ioSize>(src,dst){
+    GenericNode<q15_t,4*ioSize,q15_t,ioSize>(src,dst){
     };
 
   
@@ -36,7 +39,7 @@ public:
         arm_cmplx_mag_q15(in,out,ioSize);
         arm_shift_q15(out,6,in,ioSize);
         /* Remove conjugate part */
-        for(int i=0;i<(ioSize>>1);i++)
+        for(int i=0;i<ioSize;i++)
         {
              out[2*i] = in[i];
              out[2*i+1] = in[i];

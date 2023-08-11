@@ -1,16 +1,21 @@
 from cmsis_stream.cg.scheduler import *
 
 
+# RP2 dependent
 from Nodes.RP2.FromOtherCore.component import *
-from Nodes.RP2.lcd.component import *
 
-# Block widget is doing belnding with RP2 interpolator
-from Nodes.RP2.BlockWidget.component import *
+# Arm2D nodes
+from Nodes.Arm2D.AmplitudeWidget.component import *
+from Nodes.Arm2D.SpectrumWidget.component import *
+from Nodes.Arm2D.Arm2D.component import *
+from Nodes.Arm2D.Layer.component import *
 
+# Generic
 from Nodes.Generic.FilterAndDecimate.component import *
 from Nodes.Generic.Decimate.component import *
-from Nodes.Generic.ImageBuffer.component import *
-from Nodes.Generic.LineWidget.component import *
+
+# App Specific
+from Nodes.AppSpecific.Animate.component import *
 from Nodes.AppSpecific.FFTAmplitude.component import *
 
 from Configuration.global_config import *
@@ -66,40 +71,75 @@ decimateForFFT = FilterAndDecimate("decimateFFT",CType(Q15),
     "nbTaps","coefs")
 
 
-fb = ImageBuffer("fb",WIDTH,HEIGHT,
-    texture="cmsis_texture",
-    texture_width=99,
-    texture_height=240)
+ampLayer = Layer("ampLayer",
+                 width=200,
+                 height=100,
+                 layer=1,
+                 x=(WIDTH-200)//2,
+                 y=((HEIGHT>>1)-100)//2)
 
-ampW = LineWidget("ampW",AMP_OUTPUT,color=AMP_COLOR)
-FFTW = BlockWidget("FFTW",FFTSIZE,120,color=FFT_COLOR)
-lcd = LCD("lcd")
+fftLayer = Layer("fftLayer",
+                 width=200,
+                 height=100,
+                 layer=2,
+                 x=(WIDTH-200)//2,
+                 y=(HEIGHT>>1)+((HEIGHT>>1)-100)//2,
+                 alpha=200)
+
+cmsis = ROLayer("cmsis",
+                width=160,
+                height=66,
+                x = (WIDTH - 160)//2,
+                y = (HEIGHT - 66)//2,
+                layer=0,
+                texture="&c_tilecmsisLOGORGB565",
+                copy_only_mode = True)
+
+animate = Animate("animate")
+
+amp=AmplitudeWidget("amp",256)
+spectrum=SpectrumWidget("spectrum",128)
+
+arm2d=Arm2D(nb_layers=3)
+
 
 toCmplx=ToComplex("toCmplx",CType(Q15),FFTSIZE)
 fft = CFFT("fft",CType(Q15),FFTSIZE)
-fftMag = FFTAmplitude("fftMag",FFTSIZE)
+fftMag = FFTAmplitude("fftMag",FFTSIZE>>1)
 
 
 g = Graph()
 
+# Amplitude signal
 g.connect(core0.o,decimateForAmp.i)
-g.connect(decimateForAmp.o,ampW.i)
-g.connect(fb.o,ampW.fb)
+g.connect(decimateForAmp.o,amp.i)
 
+# FFT signal
+# decimation
 g.connect(core0.o,decimateForFFT.i)
 g.connect(decimateForFFT.o,win.ia)
+
+# windowing
 g.connect(hann,win.ib)
 
-
+# convert to complex
 g.connect(win.o,toCmplx.i)
 g.connect(toCmplx.o,fft.i)
 
+# FFT and app specific FFT magnitude
 g.connect(fft.o,fftMag.i)
-g.connect(fftMag.o,FFTW.i)
-g.connect(ampW.o,FFTW.fb)
+g.connect(fftMag.o,spectrum.i)
 
-g.connect(FFTW.o,lcd.i)
+# Display
+# Layers connected to controls
+g.connect(ampLayer.o,amp.l)
+g.connect(fftLayer.o,spectrum.l)
+g.connect(cmsis.o,animate.l)
 
+# Controls connected to Arm-2D compositor node
+g.connect(amp.o,arm2d["A"])
+g.connect(spectrum.o,arm2d["B"])
+g.connect(animate.o,arm2d["C"])
 
 print("Generate graphviz and code")
 
@@ -113,7 +153,6 @@ conf.heapAllocation = True
 conf.nodeIdentification = True
 
 conf.cOptionalArgs=["queue_t *audio_queue",
-                    "const q15_t* cmsis_texture",
                     "const int nbTaps",
                     "const q15_t* coefs"]
 
@@ -147,6 +186,8 @@ class MyStyle(Style):
             return("firebrick1")
         elif node.typeName == "LCD":
             return("darkslategray1")
+        elif node.typeName == "Layer" or node.typeName == "ROLayer" or node.typeName == "Arm2D":
+            return("orchid1")
         else:
             super().node_color(node)
 

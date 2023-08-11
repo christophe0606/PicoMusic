@@ -17,7 +17,7 @@ static const uint8_t* _allSongs[]={debugSong,NULL};
 static const char* _names[]={"debug\n",NULL};
 #else
 static const uint8_t* _allSongs[]={empire,NULL};
-static const char* _names[]={"empire\n",NULL};
+static const char* _names[]={"The Empire strikes back\n",NULL};
 
 //static const uint8_t* _allSongs[NBSONG]={empire,overture,toccata,pink,bohemian,champion};
 //static const char* _names[NBSONG]={"empire\n","overture\n","toccata\n","pink\n","bohemian\n","champion\n"};

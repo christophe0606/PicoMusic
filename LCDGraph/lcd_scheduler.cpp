@@ -81,12 +81,12 @@ CG_AFTER_INCLUDES
 Description of the scheduling. 
 
 */
-static uint8_t schedule[136]=
+static uint8_t schedule[139]=
 { 
-7,3,6,4,5,3,6,4,5,3,6,4,5,3,6,4,5,3,6,4,5,3,6,4,5,3,6,4,5,3,6,4,5,3,6,4,5,3,6,4,
-5,3,6,4,5,3,6,4,5,3,6,4,5,3,6,4,5,3,6,4,5,3,6,4,5,3,6,4,5,3,6,4,5,3,6,4,5,3,6,4,
-5,3,6,4,5,3,6,4,5,3,6,4,5,3,6,4,5,3,6,4,5,3,6,4,5,3,6,4,5,3,6,4,5,3,6,4,5,3,6,4,
-5,3,6,4,5,3,6,4,1,5,2,11,8,9,0,10,
+2,5,3,11,6,9,7,8,6,9,7,8,6,9,7,8,6,9,7,8,6,9,7,8,6,9,7,8,6,9,7,8,6,9,7,8,6,9,7,8,
+6,9,7,8,6,9,7,8,6,9,7,8,6,9,7,8,6,9,7,8,6,9,7,8,6,9,7,8,6,9,7,8,6,9,7,8,6,9,7,8,
+6,9,7,8,6,9,7,8,6,9,7,8,6,9,7,8,6,9,7,8,6,9,7,8,6,9,7,8,6,9,7,8,6,9,7,8,6,9,7,8,
+6,9,7,8,6,9,7,8,6,9,7,1,8,4,14,10,12,13,0,
 };
 
 /***********
@@ -103,69 +103,86 @@ FIFO buffers
 
 ************/
 #define FIFOSIZE0 256
-#define FIFOSIZE1 1
+#define FIFOSIZE1 256
 #define FIFOSIZE2 256
-#define FIFOSIZE3 256
+#define FIFOSIZE3 512
 #define FIFOSIZE4 512
-#define FIFOSIZE5 512
-#define FIFOSIZE6 256
+#define FIFOSIZE5 128
+#define FIFOSIZE6 1
 #define FIFOSIZE7 1
 #define FIFOSIZE8 1
-#define FIFOSIZE9 128
-#define FIFOSIZE10 128
-#define FIFOSIZE11 128
+#define FIFOSIZE9 1
+#define FIFOSIZE10 1
+#define FIFOSIZE11 1
+#define FIFOSIZE12 128
+#define FIFOSIZE13 128
+#define FIFOSIZE14 128
 
-#define BUFFERSIZE0 256
+#define BUFFERSIZE0 36
 CG_BEFORE_BUFFER
 uint8_t lcd_buf0[BUFFERSIZE0]={0};
 
-#define BUFFERSIZE1 1024
+#define BUFFERSIZE1 36
 CG_BEFORE_BUFFER
 uint8_t lcd_buf1[BUFFERSIZE1]={0};
 
-#define BUFFERSIZE2 1024
+#define BUFFERSIZE2 256
 CG_BEFORE_BUFFER
 uint8_t lcd_buf2[BUFFERSIZE2]={0};
 
-#define BUFFERSIZE3 256
+#define BUFFERSIZE3 1024
 CG_BEFORE_BUFFER
 uint8_t lcd_buf3[BUFFERSIZE3]={0};
 
-#define BUFFERSIZE4 256
+#define BUFFERSIZE4 1024
 CG_BEFORE_BUFFER
-q15_t lcd_buf4[BUFFERSIZE4]={0};
+uint8_t lcd_buf4[BUFFERSIZE4]={0};
 
 #define BUFFERSIZE5 256
 CG_BEFORE_BUFFER
-q15_t lcd_buf5[BUFFERSIZE5]={0};
+uint8_t lcd_buf5[BUFFERSIZE5]={0};
+
+#define BUFFERSIZE6 256
+CG_BEFORE_BUFFER
+q15_t lcd_buf6[BUFFERSIZE6]={0};
+
+#define BUFFERSIZE7 256
+CG_BEFORE_BUFFER
+q15_t lcd_buf7[BUFFERSIZE7]={0};
 
 
 typedef struct {
 FIFO<q15_t,FIFOSIZE0,0,0> *fifo0;
-FIFO<image_t,FIFOSIZE1,1,0> *fifo1;
-FIFO<q15_t,FIFOSIZE2,0,0> *fifo2;
+FIFO<q15_t,FIFOSIZE1,0,0> *fifo1;
+FIFO<q15_t,FIFOSIZE2,1,0> *fifo2;
 FIFO<q15_t,FIFOSIZE3,1,0> *fifo3;
 FIFO<q15_t,FIFOSIZE4,1,0> *fifo4;
 FIFO<q15_t,FIFOSIZE5,1,0> *fifo5;
-FIFO<q15_t,FIFOSIZE6,1,0> *fifo6;
-FIFO<image_t,FIFOSIZE7,1,0> *fifo7;
-FIFO<image_t,FIFOSIZE8,1,0> *fifo8;
-FIFO<q15_t,FIFOSIZE9,1,0> *fifo9;
-FIFO<q15_t,FIFOSIZE10,1,0> *fifo10;
-FIFO<q15_t,FIFOSIZE11,1,0> *fifo11;
+FIFO<stream_2d_layer_t,FIFOSIZE6,1,0> *fifo6;
+FIFO<stream_2d_layer_t,FIFOSIZE7,1,0> *fifo7;
+FIFO<stream_2d_layer_t,FIFOSIZE8,1,0> *fifo8;
+FIFO<stream_2d_layer_t,FIFOSIZE9,1,0> *fifo9;
+FIFO<stream_2d_layer_t,FIFOSIZE10,1,0> *fifo10;
+FIFO<stream_2d_layer_t,FIFOSIZE11,1,0> *fifo11;
+FIFO<q15_t,FIFOSIZE12,1,0> *fifo12;
+FIFO<q15_t,FIFOSIZE13,1,0> *fifo13;
+FIFO<q15_t,FIFOSIZE14,1,0> *fifo14;
 } fifos_t;
 
 typedef struct {
-    BlockWidget<image_t,1,q15_t,256,image_t,1> *FFTW;
-    LineWidget<image_t,1,q15_t,256,image_t,1> *ampW;
+    Arm2D<stream_2d_layer_t,1> *Compositor;
+    AmplitudeWidget<q15_t,256,stream_2d_layer_t,1,stream_2d_layer_t,1> *amp;
+    Layer<stream_2d_layer_t,1> *ampLayer;
+    Animate<stream_2d_layer_t,1,stream_2d_layer_t,1> *animate;
+    ROLayer<stream_2d_layer_t,1> *cmsis;
     FromOtherCore<q15_t,128> *core0;
     FilterAndDecimate<q15_t,128,q15_t,8> *decimateAmp;
     FilterAndDecimate<q15_t,128,q15_t,8> *decimateFFT;
     Duplicate<q15_t,128,q15_t,128> *dup0;
-    ImageBuffer<image_t,1> *fb;
     CFFT<q15_t,512,q15_t,512> *fft;
-    FFTAmplitude<q15_t,512,q15_t,256> *fftMag;
-    LCD<image_t,1> *lcd;
+    Layer<stream_2d_layer_t,1> *fftLayer;
+    FFTAmplitude<q15_t,512,q15_t,128> *fftMag;
+    SpectrumWidget<q15_t,128,stream_2d_layer_t,1,stream_2d_layer_t,1> *spectrum;
     ToComplex<q15_t,256,q15_t,512> *toCmplx;
 } nodes_t;
 
@@ -189,142 +206,177 @@ void *get_lcd_scheduler_node(int32_t nodeID)
 }
 
 int init_lcd_scheduler(queue_t *audio_queue,
-                              const q15_t* cmsis_texture,
                               const int nbTaps,
                               const q15_t* coefs)
 {
     CG_BEFORE_FIFO_INIT;
-    fifos.fifo0 = new FIFO<q15_t,FIFOSIZE0,0,0>(lcd_buf4);
+    fifos.fifo0 = new FIFO<q15_t,FIFOSIZE0,0,0>(lcd_buf6);
     if (fifos.fifo0==NULL)
     {
         return(CG_MEMORY_ALLOCATION_FAILURE);
     }
-    fifos.fifo1 = new FIFO<image_t,FIFOSIZE1,1,0>(lcd_buf1);
+    fifos.fifo1 = new FIFO<q15_t,FIFOSIZE1,0,0>(lcd_buf7);
     if (fifos.fifo1==NULL)
     {
         return(CG_MEMORY_ALLOCATION_FAILURE);
     }
-    fifos.fifo2 = new FIFO<q15_t,FIFOSIZE2,0,0>(lcd_buf5);
+    fifos.fifo2 = new FIFO<q15_t,FIFOSIZE2,1,0>(lcd_buf4);
     if (fifos.fifo2==NULL)
     {
         return(CG_MEMORY_ALLOCATION_FAILURE);
     }
-    fifos.fifo3 = new FIFO<q15_t,FIFOSIZE3,1,0>(lcd_buf2);
+    fifos.fifo3 = new FIFO<q15_t,FIFOSIZE3,1,0>(lcd_buf3);
     if (fifos.fifo3==NULL)
     {
         return(CG_MEMORY_ALLOCATION_FAILURE);
     }
-    fifos.fifo4 = new FIFO<q15_t,FIFOSIZE4,1,0>(lcd_buf1);
+    fifos.fifo4 = new FIFO<q15_t,FIFOSIZE4,1,0>(lcd_buf4);
     if (fifos.fifo4==NULL)
     {
         return(CG_MEMORY_ALLOCATION_FAILURE);
     }
-    fifos.fifo5 = new FIFO<q15_t,FIFOSIZE5,1,0>(lcd_buf2);
+    fifos.fifo5 = new FIFO<q15_t,FIFOSIZE5,1,0>(lcd_buf3);
     if (fifos.fifo5==NULL)
     {
         return(CG_MEMORY_ALLOCATION_FAILURE);
     }
-    fifos.fifo6 = new FIFO<q15_t,FIFOSIZE6,1,0>(lcd_buf1);
+    fifos.fifo6 = new FIFO<stream_2d_layer_t,FIFOSIZE6,1,0>(lcd_buf3);
     if (fifos.fifo6==NULL)
     {
         return(CG_MEMORY_ALLOCATION_FAILURE);
     }
-    fifos.fifo7 = new FIFO<image_t,FIFOSIZE7,1,0>(lcd_buf0);
+    fifos.fifo7 = new FIFO<stream_2d_layer_t,FIFOSIZE7,1,0>(lcd_buf1);
     if (fifos.fifo7==NULL)
     {
         return(CG_MEMORY_ALLOCATION_FAILURE);
     }
-    fifos.fifo8 = new FIFO<image_t,FIFOSIZE8,1,0>(lcd_buf2);
+    fifos.fifo8 = new FIFO<stream_2d_layer_t,FIFOSIZE8,1,0>(lcd_buf1);
     if (fifos.fifo8==NULL)
     {
         return(CG_MEMORY_ALLOCATION_FAILURE);
     }
-    fifos.fifo9 = new FIFO<q15_t,FIFOSIZE9,1,0>(lcd_buf0);
+    fifos.fifo9 = new FIFO<stream_2d_layer_t,FIFOSIZE9,1,0>(lcd_buf2);
     if (fifos.fifo9==NULL)
     {
         return(CG_MEMORY_ALLOCATION_FAILURE);
     }
-    fifos.fifo10 = new FIFO<q15_t,FIFOSIZE10,1,0>(lcd_buf3);
+    fifos.fifo10 = new FIFO<stream_2d_layer_t,FIFOSIZE10,1,0>(lcd_buf4);
     if (fifos.fifo10==NULL)
     {
         return(CG_MEMORY_ALLOCATION_FAILURE);
     }
-    fifos.fifo11 = new FIFO<q15_t,FIFOSIZE11,1,0>(lcd_buf2);
+    fifos.fifo11 = new FIFO<stream_2d_layer_t,FIFOSIZE11,1,0>(lcd_buf0);
     if (fifos.fifo11==NULL)
+    {
+        return(CG_MEMORY_ALLOCATION_FAILURE);
+    }
+    fifos.fifo12 = new FIFO<q15_t,FIFOSIZE12,1,0>(lcd_buf2);
+    if (fifos.fifo12==NULL)
+    {
+        return(CG_MEMORY_ALLOCATION_FAILURE);
+    }
+    fifos.fifo13 = new FIFO<q15_t,FIFOSIZE13,1,0>(lcd_buf5);
+    if (fifos.fifo13==NULL)
+    {
+        return(CG_MEMORY_ALLOCATION_FAILURE);
+    }
+    fifos.fifo14 = new FIFO<q15_t,FIFOSIZE14,1,0>(lcd_buf4);
+    if (fifos.fifo14==NULL)
     {
         return(CG_MEMORY_ALLOCATION_FAILURE);
     }
 
     CG_BEFORE_NODE_INIT;
-    nodes.FFTW = new BlockWidget<image_t,1,q15_t,256,image_t,1>(*(fifos.fifo7),*(fifos.fifo6),*(fifos.fifo8),120,63488);
-    if (nodes.FFTW==NULL)
+    nodes.Compositor = new Arm2D<stream_2d_layer_t,1>({fifos.fifo9,fifos.fifo10,fifos.fifo11});
+    if (nodes.Compositor==NULL)
     {
         return(CG_MEMORY_ALLOCATION_FAILURE);
     }
-    identifiedNodes[LCD_FFTW_ID]=(void*)nodes.FFTW;
-    nodes.FFTW->setID(LCD_FFTW_ID);
-    nodes.ampW = new LineWidget<image_t,1,q15_t,256,image_t,1>(*(fifos.fifo1),*(fifos.fifo0),*(fifos.fifo7),0,31);
-    if (nodes.ampW==NULL)
+    identifiedNodes[LCD_COMPOSITOR_ID]=(void*)nodes.Compositor;
+    nodes.Compositor->setID(LCD_COMPOSITOR_ID);
+    nodes.amp = new AmplitudeWidget<q15_t,256,stream_2d_layer_t,1,stream_2d_layer_t,1>(*(fifos.fifo0),*(fifos.fifo6),*(fifos.fifo9));
+    if (nodes.amp==NULL)
     {
         return(CG_MEMORY_ALLOCATION_FAILURE);
     }
-    identifiedNodes[LCD_AMPW_ID]=(void*)nodes.ampW;
-    nodes.ampW->setID(LCD_AMPW_ID);
-    nodes.core0 = new FromOtherCore<q15_t,128>(*(fifos.fifo9),audio_queue,1);
+    identifiedNodes[LCD_AMP_ID]=(void*)nodes.amp;
+    nodes.amp->setID(LCD_AMP_ID);
+    nodes.ampLayer = new Layer<stream_2d_layer_t,1>(*(fifos.fifo6),1,20,10,65535,255,false,200,100);
+    if (nodes.ampLayer==NULL)
+    {
+        return(CG_MEMORY_ALLOCATION_FAILURE);
+    }
+    identifiedNodes[LCD_AMPLAYER_ID]=(void*)nodes.ampLayer;
+    nodes.ampLayer->setID(LCD_AMPLAYER_ID);
+    nodes.animate = new Animate<stream_2d_layer_t,1,stream_2d_layer_t,1>(*(fifos.fifo8),*(fifos.fifo11));
+    if (nodes.animate==NULL)
+    {
+        return(CG_MEMORY_ALLOCATION_FAILURE);
+    }
+    identifiedNodes[LCD_ANIMATE_ID]=(void*)nodes.animate;
+    nodes.animate->setID(LCD_ANIMATE_ID);
+    nodes.cmsis = new ROLayer<stream_2d_layer_t,1>(*(fifos.fifo8),0,40,87,65535,255,true,&c_tilecmsisLOGORGB565);
+    if (nodes.cmsis==NULL)
+    {
+        return(CG_MEMORY_ALLOCATION_FAILURE);
+    }
+    identifiedNodes[LCD_CMSIS_ID]=(void*)nodes.cmsis;
+    nodes.cmsis->setID(LCD_CMSIS_ID);
+    nodes.core0 = new FromOtherCore<q15_t,128>(*(fifos.fifo12),audio_queue,1);
     if (nodes.core0==NULL)
     {
         return(CG_MEMORY_ALLOCATION_FAILURE);
     }
     identifiedNodes[LCD_CORE0_ID]=(void*)nodes.core0;
     nodes.core0->setID(LCD_CORE0_ID);
-    nodes.decimateAmp = new FilterAndDecimate<q15_t,128,q15_t,8>(*(fifos.fifo10),*(fifos.fifo0),nbTaps,coefs);
+    nodes.decimateAmp = new FilterAndDecimate<q15_t,128,q15_t,8>(*(fifos.fifo13),*(fifos.fifo0),nbTaps,coefs);
     if (nodes.decimateAmp==NULL)
     {
         return(CG_MEMORY_ALLOCATION_FAILURE);
     }
     identifiedNodes[LCD_DECIMATEAMP_ID]=(void*)nodes.decimateAmp;
     nodes.decimateAmp->setID(LCD_DECIMATEAMP_ID);
-    nodes.decimateFFT = new FilterAndDecimate<q15_t,128,q15_t,8>(*(fifos.fifo11),*(fifos.fifo2),nbTaps,coefs);
+    nodes.decimateFFT = new FilterAndDecimate<q15_t,128,q15_t,8>(*(fifos.fifo14),*(fifos.fifo1),nbTaps,coefs);
     if (nodes.decimateFFT==NULL)
     {
         return(CG_MEMORY_ALLOCATION_FAILURE);
     }
     identifiedNodes[LCD_DECIMATEFFT_ID]=(void*)nodes.decimateFFT;
     nodes.decimateFFT->setID(LCD_DECIMATEFFT_ID);
-    nodes.dup0 = new Duplicate<q15_t,128,q15_t,128>(*(fifos.fifo9),{fifos.fifo10,fifos.fifo11});
+    nodes.dup0 = new Duplicate<q15_t,128,q15_t,128>(*(fifos.fifo12),{fifos.fifo13,fifos.fifo14});
     if (nodes.dup0==NULL)
     {
         return(CG_MEMORY_ALLOCATION_FAILURE);
     }
-    nodes.fb = new ImageBuffer<image_t,1>(*(fifos.fifo1),240,240,cmsis_texture,99,240);
-    if (nodes.fb==NULL)
-    {
-        return(CG_MEMORY_ALLOCATION_FAILURE);
-    }
-    identifiedNodes[LCD_FB_ID]=(void*)nodes.fb;
-    nodes.fb->setID(LCD_FB_ID);
-    nodes.fft = new CFFT<q15_t,512,q15_t,512>(*(fifos.fifo4),*(fifos.fifo5));
+    nodes.fft = new CFFT<q15_t,512,q15_t,512>(*(fifos.fifo3),*(fifos.fifo4));
     if (nodes.fft==NULL)
     {
         return(CG_MEMORY_ALLOCATION_FAILURE);
     }
     identifiedNodes[LCD_FFT_ID]=(void*)nodes.fft;
     nodes.fft->setID(LCD_FFT_ID);
-    nodes.fftMag = new FFTAmplitude<q15_t,512,q15_t,256>(*(fifos.fifo5),*(fifos.fifo6));
+    nodes.fftLayer = new Layer<stream_2d_layer_t,1>(*(fifos.fifo7),2,20,130,65535,200,false,200,100);
+    if (nodes.fftLayer==NULL)
+    {
+        return(CG_MEMORY_ALLOCATION_FAILURE);
+    }
+    identifiedNodes[LCD_FFTLAYER_ID]=(void*)nodes.fftLayer;
+    nodes.fftLayer->setID(LCD_FFTLAYER_ID);
+    nodes.fftMag = new FFTAmplitude<q15_t,512,q15_t,128>(*(fifos.fifo4),*(fifos.fifo5));
     if (nodes.fftMag==NULL)
     {
         return(CG_MEMORY_ALLOCATION_FAILURE);
     }
     identifiedNodes[LCD_FFTMAG_ID]=(void*)nodes.fftMag;
     nodes.fftMag->setID(LCD_FFTMAG_ID);
-    nodes.lcd = new LCD<image_t,1>(*(fifos.fifo8));
-    if (nodes.lcd==NULL)
+    nodes.spectrum = new SpectrumWidget<q15_t,128,stream_2d_layer_t,1,stream_2d_layer_t,1>(*(fifos.fifo5),*(fifos.fifo7),*(fifos.fifo10));
+    if (nodes.spectrum==NULL)
     {
         return(CG_MEMORY_ALLOCATION_FAILURE);
     }
-    identifiedNodes[LCD_LCD_ID]=(void*)nodes.lcd;
-    nodes.lcd->setID(LCD_LCD_ID);
-    nodes.toCmplx = new ToComplex<q15_t,256,q15_t,512>(*(fifos.fifo3),*(fifos.fifo4));
+    identifiedNodes[LCD_SPECTRUM_ID]=(void*)nodes.spectrum;
+    nodes.spectrum->setID(LCD_SPECTRUM_ID);
+    nodes.toCmplx = new ToComplex<q15_t,256,q15_t,512>(*(fifos.fifo2),*(fifos.fifo3));
     if (nodes.toCmplx==NULL)
     {
         return(CG_MEMORY_ALLOCATION_FAILURE);
@@ -337,7 +389,6 @@ int init_lcd_scheduler(queue_t *audio_queue,
 }
 
 void free_lcd_scheduler(queue_t *audio_queue,
-                              const q15_t* cmsis_texture,
                               const int nbTaps,
                               const q15_t* coefs)
 {
@@ -389,14 +440,38 @@ void free_lcd_scheduler(queue_t *audio_queue,
     {
        delete fifos.fifo11;
     }
-
-    if (nodes.FFTW!=NULL)
+    if (fifos.fifo12!=NULL)
     {
-        delete nodes.FFTW;
+       delete fifos.fifo12;
     }
-    if (nodes.ampW!=NULL)
+    if (fifos.fifo13!=NULL)
     {
-        delete nodes.ampW;
+       delete fifos.fifo13;
+    }
+    if (fifos.fifo14!=NULL)
+    {
+       delete fifos.fifo14;
+    }
+
+    if (nodes.Compositor!=NULL)
+    {
+        delete nodes.Compositor;
+    }
+    if (nodes.amp!=NULL)
+    {
+        delete nodes.amp;
+    }
+    if (nodes.ampLayer!=NULL)
+    {
+        delete nodes.ampLayer;
+    }
+    if (nodes.animate!=NULL)
+    {
+        delete nodes.animate;
+    }
+    if (nodes.cmsis!=NULL)
+    {
+        delete nodes.cmsis;
     }
     if (nodes.core0!=NULL)
     {
@@ -414,21 +489,21 @@ void free_lcd_scheduler(queue_t *audio_queue,
     {
         delete nodes.dup0;
     }
-    if (nodes.fb!=NULL)
-    {
-        delete nodes.fb;
-    }
     if (nodes.fft!=NULL)
     {
         delete nodes.fft;
+    }
+    if (nodes.fftLayer!=NULL)
+    {
+        delete nodes.fftLayer;
     }
     if (nodes.fftMag!=NULL)
     {
         delete nodes.fftMag;
     }
-    if (nodes.lcd!=NULL)
+    if (nodes.spectrum!=NULL)
     {
-        delete nodes.lcd;
+        delete nodes.spectrum;
     }
     if (nodes.toCmplx!=NULL)
     {
@@ -439,7 +514,6 @@ void free_lcd_scheduler(queue_t *audio_queue,
 
 CG_BEFORE_SCHEDULER_FUNCTION
 uint32_t lcd_scheduler(int *error,queue_t *audio_queue,
-                              const q15_t* cmsis_texture,
                               const int nbTaps,
                               const q15_t* coefs)
 {
@@ -453,7 +527,7 @@ uint32_t lcd_scheduler(int *error,queue_t *audio_queue,
     {
         /* Run a schedule iteration */
         CG_BEFORE_ITERATION;
-        for(unsigned long id=0 ; id < 136; id++)
+        for(unsigned long id=0 ; id < 139; id++)
         {
             CG_BEFORE_NODE_EXECUTION;
 
@@ -461,80 +535,98 @@ uint32_t lcd_scheduler(int *error,queue_t *audio_queue,
             {
                 case 0:
                 {
-                   cgStaticError = nodes.FFTW->run();
+                   cgStaticError = nodes.Compositor->run();
                 }
                 break;
 
                 case 1:
                 {
-                   cgStaticError = nodes.ampW->run();
+                   cgStaticError = nodes.amp->run();
                 }
                 break;
 
                 case 2:
+                {
+                   cgStaticError = nodes.ampLayer->run();
+                }
+                break;
+
+                case 3:
+                {
+                   cgStaticError = nodes.animate->run();
+                }
+                break;
+
+                case 4:
                 {
                    
                   {
 
                    q15_t* i0;
                    q15_t* o2;
-                   i0=fifos.fifo2->getReadBuffer(256);
-                   o2=fifos.fifo3->getWriteBuffer(256);
+                   i0=fifos.fifo1->getReadBuffer(256);
+                   o2=fifos.fifo2->getWriteBuffer(256);
                    arm_mult_q15(i0,hanningQ15,o2,256);
                    cgStaticError = 0;
                   }
                 }
                 break;
 
-                case 3:
-                {
-                   cgStaticError = nodes.core0->run();
-                }
-                break;
-
-                case 4:
-                {
-                   cgStaticError = nodes.decimateAmp->run();
-                }
-                break;
-
                 case 5:
                 {
-                   cgStaticError = nodes.decimateFFT->run();
+                   cgStaticError = nodes.cmsis->run();
                 }
                 break;
 
                 case 6:
                 {
-                   cgStaticError = nodes.dup0->run();
+                   cgStaticError = nodes.core0->run();
                 }
                 break;
 
                 case 7:
                 {
-                   cgStaticError = nodes.fb->run();
+                   cgStaticError = nodes.decimateAmp->run();
                 }
                 break;
 
                 case 8:
                 {
-                   cgStaticError = nodes.fft->run();
+                   cgStaticError = nodes.decimateFFT->run();
                 }
                 break;
 
                 case 9:
                 {
-                   cgStaticError = nodes.fftMag->run();
+                   cgStaticError = nodes.dup0->run();
                 }
                 break;
 
                 case 10:
                 {
-                   cgStaticError = nodes.lcd->run();
+                   cgStaticError = nodes.fft->run();
                 }
                 break;
 
                 case 11:
+                {
+                   cgStaticError = nodes.fftLayer->run();
+                }
+                break;
+
+                case 12:
+                {
+                   cgStaticError = nodes.fftMag->run();
+                }
+                break;
+
+                case 13:
+                {
+                   cgStaticError = nodes.spectrum->run();
+                }
+                break;
+
+                case 14:
                 {
                    cgStaticError = nodes.toCmplx->run();
                 }

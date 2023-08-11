@@ -29,31 +29,49 @@ pico_sdk_init()
 
 add_executable(stream
         App/Sources/main.cpp
-        App/Sources/cmsis_texture.c 
+        App/Sources/cmsis_logo.c 
         AudioGraph/audio_scheduler.cpp 
         LCDGraph/lcd_scheduler.cpp
         Playtune_synth/instruments.cpp 
         Playtune_synth/synth_Playtune_waves.cpp
         Songs/empire.c
         Songs/songs.c
+        Nodes/Arm2D/Arm2D/arm_2d_scene_cmsis_stream.c
+        Nodes/Arm2D/AmplitudeWidget/draw_amplitude.c
+        Nodes/Arm2D/SpectrumWidget/draw_spectrum.c
         )
 
 target_include_directories(stream PUBLIC . 
     ${STREAM}/Include/cg/nodes/cpp
     App/Includes
-    Nodes 
+    Nodes
+    Nodes/Arm2D/Layer
     Configuration/Includes
     AudioGraph
     LCDGraph
     Songs
     )
 
+# Disable Arm-2D C++ warnings for C types that are not used 
+# from C++ side
+set_source_files_properties(LCDGraph/lcd_scheduler.cpp PROPERTIES COMPILE_FLAGS -Wno-subobject-linkage)
+set_source_files_properties(App/Sources/main.cpp PROPERTIES COMPILE_FLAGS -Wno-subobject-linkage)
 
-pico_generate_pio_header(stream ${CMAKE_CURRENT_LIST_DIR}/Nodes/RP2/lcd/st7789_lcd.pio)
+# Add Arm-2D and indirectely CMSIS-DSP that is also used by Arm-2D
+option(ARM2D_CONTROLS "" ON)
+option(ARM2D_HELPER "" ON)
+option(ARM2D_LCD_PRINTF "" ON)
+option(ARM2D_BENCHMARK_GENERIC "" OFF)
+option(ARM2D_BENCHMARK_WATCHPANEL "" OFF)
+option(ARM2D_ALPHA_BLENDING "" ON)
+option(ARM2D_TRANSFORM "" ON)
+add_subdirectory(${ARM2D_RP2040} arm2d_rp2040_bin)
+# Disable partial framebuffer
+target_compile_definitions(ARM2D PUBLIC 
+    __ARM_2D_CFG_UNSAFE_IGNORE_ALPHA_255_COMPENSATION__ 
+    __DISP0_CFG_PFB_BLOCK_HEIGHT__=240 
+    __DISP0_CFG_DISABLE_NAVIGATION_LAYER__=1)
 
-add_subdirectory(${DSP}/Source bin_dsp)
-
-target_compile_options(CMSISDSP PRIVATE -Ofast -ffunction-sections -fdata-sections)
 
 target_compile_definitions(stream PUBLIC PICO_AUDIO_PWM_PIO=1)
 # pull in common dependencies and adc hardware support
@@ -67,7 +85,7 @@ target_link_libraries(stream
     hardware_irq
     hardware_interp
     hardware_clocks
-    CMSISDSP
+    arm2d_rp2040
     )
 
 
