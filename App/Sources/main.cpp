@@ -31,6 +31,14 @@
 #include "Nodes/RP2/pwm_audio/c_component.h"
 #include "Songs/songs.h"
 
+/*
+
+For PIN informations
+
+*/
+#include "pico/audio_pwm.h"
+
+
 /* start_lcd() */
 extern "C" {
 #include "st7789_lcd.h"
@@ -86,7 +94,18 @@ int main() {
 
 #endif
     bi_decl(bi_program_description("CMSIS-Stream and CMSIS-DSP example for Raspberry Pi Pico")); // for picotool
-    //bi_decl(bi_1pin_with_name(ADC_PIN, "ADC input pin"));
+    bi_decl(bi_program_version_string("v1.0.0")); // for picotool
+    bi_decl(bi_program_url("https://github.com/christophe0606/PicoMusic/tree/main")); // for picotool
+
+    bi_decl(bi_1pin_with_name(PICO_AUDIO_PWM_L_PIN, "PICO_AUDIO_PWM_L_PIN"));
+
+    bi_decl(bi_1pin_with_name(PIN_DIN, "LCD PIN_DIN"));
+    bi_decl(bi_1pin_with_name(PIN_CLK, "LCD PIN_CLK"));
+    bi_decl(bi_1pin_with_name(PIN_CS, "LCD PIN_CS"));
+    bi_decl(bi_1pin_with_name(PIN_DC, "LCD PIN_DC"));
+    bi_decl(bi_1pin_with_name(PIN_RESET, "LCD PIN_RESET"));
+    bi_decl(bi_1pin_with_name(PIN_BL, "LCD PIN_BL"));
+
 
     int error=CG_SUCCESS;
     uint32_t nbSched = 0;
