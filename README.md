@@ -15,11 +15,7 @@ The LCD graph is reading the audio data and generating a framebuffer to display 
 
 <img src="Documentation/PicoMusic.jpg" alt="PicoMusic" style="zoom: 25%;" />
 
-
-
-https://github.com/christophe0606/PicoMusic/assets/48906714/b5b29c64-6573-45c1-aa49-301c525b5d82
-
-
+https://github.com/christophe0606/PicoMusic/assets/48906714/71928e84-742c-49ad-a4ea-63e5119bedac
 
 ## Audio graph
 
