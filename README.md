@@ -30,6 +30,8 @@ With a serial console connected though USB you can control the digital gain of t
 
 The console will also display the name of the song being played. If you have configured several songs in the demo, you can move to the next song with `n` key.
 
+![Console](Documentation/Console.jpg)
+
 To add new songs, you can modify the arrays defined in `Songs/songs.c` and add a reference to your new song:
 
 ```C
