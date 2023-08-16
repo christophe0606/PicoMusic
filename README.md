@@ -186,7 +186,9 @@ git clone https://github.com/ARM-software/Arm-2D.git
 git clone https://github.com/christophe0606/Arm2D_RP2040
 ```
 
-The last project is providing RP2040 specific optimizations for [Arm-2D](https://github.com/ARM-software/Arm-2D) and is also providing a `CMakeLists.txt` to make it easier to build [Arm-2D](https://github.com/ARM-software/Arm-2D) +  [CMSIS-DSP](https://github.com/ARM-software/CMSIS-DSP) in the Pico environment.
+For CMSIS-DSP and Arm-2D, use the develop branch.
+
+The last project Arm2D_RP2040 is providing RP2040 specific optimizations for [Arm-2D](https://github.com/ARM-software/Arm-2D) and is also providing a `CMakeLists.txt` to make it easier to build [Arm-2D](https://github.com/ARM-software/Arm-2D) +  [CMSIS-DSP](https://github.com/ARM-software/CMSIS-DSP) in the Pico environment.
 
 ## Copyright and licensing information
 
