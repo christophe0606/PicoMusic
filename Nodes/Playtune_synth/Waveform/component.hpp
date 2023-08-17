@@ -37,6 +37,7 @@ public:
              phase=0;
              waveform = getInstrumentWaveForm(0);
              mPhaseIncrement=0;
+             drumEnded = false;
                 };
 
     int prepareForRunning() final
@@ -84,6 +85,7 @@ public:
         	if (c->inst>=129)
             {
                isDrum = true;
+               drumEnded = false;
                instrumentID = c->inst - 129;
                waveform = getDrumWaveForm(instrumentID);
   
@@ -117,35 +119,37 @@ public:
 
         if ((c->cmd == NO_MIDI_CMD) || (c->cmd == NOTE_ON))
         {
-            //printf("%d %d\r\n",mPhaseIncrement,magnitude);
                 if (isDrum)
                 {
-                    #if 0
-                    int16_t d,val1,val2;
-                    int32_t frac;
-                    #endif
                     int16_t val1;
                     int16_t index1,index2;
-            
-                    for(int i=0;i<outputSize;i++)
+                    if (drumEnded)
                     {
-                        index1 = phase >> 20;
-                        index2 = index1 + 1;
-                        if (index2 >= drum_ending_sample_index)
+                       memset(b,0,sizeof(q15_t)*outputSize);
+                       return(CG_SUCCESS);
+                    }
+                    else 
+                    {
+                        for(int i=0;i<outputSize;i++)
                         {
-                           b[i] = 0;
+                            index1 = phase >> 20;
+                            index2 = index1 + 1;
+                            if (drumEnded || (index2 >= drum_ending_sample_index))
+                            {
+                               b[i] = 0;
+                               drumEnded = true;
+                            }
+                            else
+                            {
+                               val1 = waveform[index1];
+                               // The Pico HW interpolator could be used
+                               // here to interpolate between sample at index1
+                               // and index2 using the fractional part of the
+                               // phase increment
+                               b[i] = __SSAT((val1 * magnitude) >> 15,16);
+                            }
+                            phase = (phase + mPhaseIncrement);
                         }
-                        else
-                        {
-                           val1 = waveform[index1];
-                           // The Pico HW interpolator could be used
-                           // here to interpolate between sample at index1
-                           // and index2 using the fractional part of the
-                           // phase increment
-                           b[i] = __SSAT((val1 * magnitude) >> 15,16);
-                        }
-                        phase = (phase + mPhaseIncrement);
-            
                     }
                 }
                 else
@@ -183,4 +187,5 @@ protected:
     int instrumentID;
     int mChannelNb;
     uint32_t *mOffState;
+    bool drumEnded;
 };
