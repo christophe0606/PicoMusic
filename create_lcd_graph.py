@@ -173,6 +173,10 @@ print("Memory usage %d bytes" % sched.memory)
 
 sched.ccode("LCDGraph",conf)
 
+# If you regenerate the graphs with a newer version of CMSIS-Stream
+# you should uncomment those lines to be sure you are also using the
+# latest version of those 2 C++ headers
+
 #generateGenericNodes("./App/Includes")
 #generateCGStatus("./App/Includes")
 
