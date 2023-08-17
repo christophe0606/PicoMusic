@@ -82,14 +82,14 @@ public:
 
         	
 
-        	if (c->inst>=129)
+        	if (c->note>=129)
             {
                isDrum = true;
                drumEnded = false;
-               instrumentID = c->inst - 129;
+               instrumentID = c->note - 129;
                waveform = getDrumWaveForm(instrumentID);
   
-               mPhaseIncrement =getDrumWaveFormPhaseIncrement(instrumentID);
+               mPhaseIncrement =getDrumWaveFormPhaseIncrement(instrumentID)>>2;
                phase = 0; // start at the beginning
                drum_ending_sample_index = getDrumEndingSampleIndex(instrumentID); // remember the end of the waveform
             }

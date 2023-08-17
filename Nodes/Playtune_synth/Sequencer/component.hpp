@@ -62,6 +62,7 @@ static const uint32_t tune_to_phase_increment[NUM_NOTES] = {
 typedef struct {
 uint32_t cmd;
 uint32_t inst;
+uint32_t note;
 q15_t amp;
 uint32_t phaseIncrement;
 } midi_cmd_t;
@@ -215,7 +216,7 @@ public:
                    mPos += 1;
 
                    if (note < MIN_NOTE) note = MIN_NOTE;
-                   if (note > MAX_NOTE) note = MAX_NOTE;
+                   if ((note > MAX_NOTE) && (note < 129)) note = MAX_NOTE;
 
                    
                 if (chan < nb_channels)
@@ -230,19 +231,25 @@ public:
                    {
                      velocity=NB_VELOCITY-1;
                    }
-                   if (note>=NB_TUNES)
+
+                    uint32_t phaseIncrement =0;
+
+                   if ((note>MAX_NOTE) && (note < 129))
                    {
-                     note=NB_TUNES-1;
+                     note=MAX_NOTE;
                    }
                    q15_t amp = velocity2amplitude[velocity];
-                   uint32_t phaseIncrement = tune_to_phase_increment[note-MIN_NOTE];
-   
+                   if (note < 129)
+                   {
+                      phaseIncrement = tune_to_phase_increment[note-MIN_NOTE];
+                   }
              
                     cmdSet[chan] = true;
    
                     b[chan]->cmd = NOTE_ON;
                     b[chan]->inst=inst;
                     b[chan]->amp=amp;
+                    b[chan]->note=note; // used from percussion detection
                     b[chan]->phaseIncrement=phaseIncrement;
 
                     if (velocity == 0)
