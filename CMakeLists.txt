@@ -35,6 +35,7 @@ add_executable(stream
         Playtune_synth/instruments.cpp 
         Playtune_synth/synth_Playtune_waves.cpp
         Songs/empire.c
+        Songs/dorian.c
         Songs/songs.c
         Nodes/Arm2D/Arm2D/arm_2d_scene_cmsis_stream.c
         Nodes/Arm2D/AmplitudeWidget/draw_amplitude.c

@@ -89,7 +89,7 @@ public:
                instrumentID = c->note - 129;
                waveform = getDrumWaveForm(instrumentID);
   
-               mPhaseIncrement =getDrumWaveFormPhaseIncrement(instrumentID)>>2;
+               mPhaseIncrement =getDrumWaveFormPhaseIncrement(instrumentID)>>4;
                phase = 0; // start at the beginning
                drum_ending_sample_index = getDrumEndingSampleIndex(instrumentID); // remember the end of the waveform
             }
