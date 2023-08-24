@@ -76,6 +76,8 @@ The support classes and code are covered by CMSIS-Stream license.
 CG_AFTER_INCLUDES
 
 
+using namespace arm_cmsis_stream;
+
 /*
 
 Description of the scheduling. 
@@ -170,7 +172,7 @@ uint8_t audio_buf6[BUFFERSIZE6]={0};
 CG_BEFORE_BUFFER
 uint8_t audio_buf7[BUFFERSIZE7]={0};
 
-#define BUFFERSIZE8 16
+#define BUFFERSIZE8 20
 CG_BEFORE_BUFFER
 uint8_t audio_buf8[BUFFERSIZE8]={0};
 

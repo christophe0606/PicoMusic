@@ -187,41 +187,29 @@ fftMag:i -> spectrum:i [style="solid",color="black",fontsize="12.0",fontcolor="b
 ,taillabel=<<TABLE BORDER="0" CELLPADDING="4"><TR><TD><FONT COLOR="blue" POINT-SIZE="12.0" >128</FONT>
 </TD></TR></TABLE>>]
 
-ampLayer:i -> amp:l [style="solid",color="black",fontsize="12.0",fontcolor="black",label=<stream_2d_layer_t(1)>
-,headlabel=<<TABLE BORDER="0" CELLPADDING="4"><TR><TD><FONT COLOR="blue" POINT-SIZE="12.0" >1</FONT>
-</TD></TR></TABLE>>
-,taillabel=<<TABLE BORDER="0" CELLPADDING="4"><TR><TD><FONT COLOR="blue" POINT-SIZE="12.0" >1</FONT>
-</TD></TR></TABLE>>]
+ampLayer:i -> amp:l [style="solid",color="black",fontsize="12.0",fontcolor="black",label=<stream_2d_layer_t>
 
-fftLayer:i -> spectrum:l [style="solid",color="black",fontsize="12.0",fontcolor="black",label=<stream_2d_layer_t(1)>
-,headlabel=<<TABLE BORDER="0" CELLPADDING="4"><TR><TD><FONT COLOR="blue" POINT-SIZE="12.0" >1</FONT>
-</TD></TR></TABLE>>
-,taillabel=<<TABLE BORDER="0" CELLPADDING="4"><TR><TD><FONT COLOR="blue" POINT-SIZE="12.0" >1</FONT>
-</TD></TR></TABLE>>]
+]
 
-cmsis:i -> animate:i [style="solid",color="black",fontsize="12.0",fontcolor="black",label=<stream_2d_layer_t(1)>
-,headlabel=<<TABLE BORDER="0" CELLPADDING="4"><TR><TD><FONT COLOR="blue" POINT-SIZE="12.0" >1</FONT>
-</TD></TR></TABLE>>
-,taillabel=<<TABLE BORDER="0" CELLPADDING="4"><TR><TD><FONT COLOR="blue" POINT-SIZE="12.0" >1</FONT>
-</TD></TR></TABLE>>]
+fftLayer:i -> spectrum:l [style="solid",color="black",fontsize="12.0",fontcolor="black",label=<stream_2d_layer_t>
 
-amp:o -> Compositor:A [style="solid",color="black",fontsize="12.0",fontcolor="black",label=<stream_2d_layer_t(1)>
-,headlabel=<<TABLE BORDER="0" CELLPADDING="4"><TR><TD><FONT COLOR="blue" POINT-SIZE="12.0" >1</FONT>
-</TD></TR></TABLE>>
-,taillabel=<<TABLE BORDER="0" CELLPADDING="4"><TR><TD><FONT COLOR="blue" POINT-SIZE="12.0" >1</FONT>
-</TD></TR></TABLE>>]
+]
 
-spectrum:o -> Compositor:B [style="solid",color="black",fontsize="12.0",fontcolor="black",label=<stream_2d_layer_t(1)>
-,headlabel=<<TABLE BORDER="0" CELLPADDING="4"><TR><TD><FONT COLOR="blue" POINT-SIZE="12.0" >1</FONT>
-</TD></TR></TABLE>>
-,taillabel=<<TABLE BORDER="0" CELLPADDING="4"><TR><TD><FONT COLOR="blue" POINT-SIZE="12.0" >1</FONT>
-</TD></TR></TABLE>>]
+cmsis:i -> animate:i [style="solid",color="black",fontsize="12.0",fontcolor="black",label=<stream_2d_layer_t>
 
-animate:i -> Compositor:C [style="solid",color="black",fontsize="12.0",fontcolor="black",label=<stream_2d_layer_t(1)>
-,headlabel=<<TABLE BORDER="0" CELLPADDING="4"><TR><TD><FONT COLOR="blue" POINT-SIZE="12.0" >1</FONT>
-</TD></TR></TABLE>>
-,taillabel=<<TABLE BORDER="0" CELLPADDING="4"><TR><TD><FONT COLOR="blue" POINT-SIZE="12.0" >1</FONT>
-</TD></TR></TABLE>>]
+]
+
+amp:o -> Compositor:A [style="solid",color="black",fontsize="12.0",fontcolor="black",label=<stream_2d_layer_t>
+
+]
+
+spectrum:o -> Compositor:B [style="solid",color="black",fontsize="12.0",fontcolor="black",label=<stream_2d_layer_t>
+
+]
+
+animate:i -> Compositor:C [style="solid",color="black",fontsize="12.0",fontcolor="black",label=<stream_2d_layer_t>
+
+]
 
 core0:i ->  
 dup0 [style="solid",color="black",fontsize="12.0",fontcolor="black",label=<q15(128)>

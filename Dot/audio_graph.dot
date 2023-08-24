@@ -399,111 +399,93 @@ arm_add_q151:o -> ogain:i [style="solid",color="black",fontsize="12.0",fontcolor
 </TD></TR></TABLE>>]
 
 NoteSequencer:A ->  
-dup0 [style="solid",color="black",fontsize="12.0",fontcolor="black",label=<midi_cmd_t(1)>
+dup0 [style="solid",color="black",fontsize="12.0",fontcolor="black",label=<midi_cmd_t>
 
-,taillabel=<<TABLE BORDER="0" CELLPADDING="4"><TR><TD><FONT COLOR="blue" POINT-SIZE="12.0" >1</FONT>
-</TD></TR></TABLE>>]
-
- 
-dup0 -> Waveform0:i [style="solid",color="black",fontsize="12.0",fontcolor="black",label=<midi_cmd_t(1)>
-,headlabel=<<TABLE BORDER="0" CELLPADDING="4"><TR><TD><FONT COLOR="blue" POINT-SIZE="12.0" >1</FONT>
-</TD></TR></TABLE>>
 ]
 
  
-dup0 -> Enveloppe_0:c [style="solid",color="black",fontsize="12.0",fontcolor="black",label=<midi_cmd_t(1)>
-,headlabel=<<TABLE BORDER="0" CELLPADDING="4"><TR><TD><FONT COLOR="blue" POINT-SIZE="12.0" >1</FONT>
-</TD></TR></TABLE>>
+dup0 -> Waveform0:i [style="solid",color="black",fontsize="12.0",fontcolor="black",label=<midi_cmd_t>
+
+]
+
+ 
+dup0 -> Enveloppe_0:c [style="solid",color="black",fontsize="12.0",fontcolor="black",label=<midi_cmd_t>
+
 ]
 
 NoteSequencer:B ->  
-dup1 [style="solid",color="black",fontsize="12.0",fontcolor="black",label=<midi_cmd_t(1)>
+dup1 [style="solid",color="black",fontsize="12.0",fontcolor="black",label=<midi_cmd_t>
 
-,taillabel=<<TABLE BORDER="0" CELLPADDING="4"><TR><TD><FONT COLOR="blue" POINT-SIZE="12.0" >1</FONT>
-</TD></TR></TABLE>>]
-
- 
-dup1 -> Waveform1:i [style="solid",color="black",fontsize="12.0",fontcolor="black",label=<midi_cmd_t(1)>
-,headlabel=<<TABLE BORDER="0" CELLPADDING="4"><TR><TD><FONT COLOR="blue" POINT-SIZE="12.0" >1</FONT>
-</TD></TR></TABLE>>
 ]
 
  
-dup1 -> Enveloppe_1:c [style="solid",color="black",fontsize="12.0",fontcolor="black",label=<midi_cmd_t(1)>
-,headlabel=<<TABLE BORDER="0" CELLPADDING="4"><TR><TD><FONT COLOR="blue" POINT-SIZE="12.0" >1</FONT>
-</TD></TR></TABLE>>
+dup1 -> Waveform1:i [style="solid",color="black",fontsize="12.0",fontcolor="black",label=<midi_cmd_t>
+
+]
+
+ 
+dup1 -> Enveloppe_1:c [style="solid",color="black",fontsize="12.0",fontcolor="black",label=<midi_cmd_t>
+
 ]
 
 NoteSequencer:C ->  
-dup2 [style="solid",color="black",fontsize="12.0",fontcolor="black",label=<midi_cmd_t(1)>
+dup2 [style="solid",color="black",fontsize="12.0",fontcolor="black",label=<midi_cmd_t>
 
-,taillabel=<<TABLE BORDER="0" CELLPADDING="4"><TR><TD><FONT COLOR="blue" POINT-SIZE="12.0" >1</FONT>
-</TD></TR></TABLE>>]
-
- 
-dup2 -> Waveform2:i [style="solid",color="black",fontsize="12.0",fontcolor="black",label=<midi_cmd_t(1)>
-,headlabel=<<TABLE BORDER="0" CELLPADDING="4"><TR><TD><FONT COLOR="blue" POINT-SIZE="12.0" >1</FONT>
-</TD></TR></TABLE>>
 ]
 
  
-dup2 -> Enveloppe_2:c [style="solid",color="black",fontsize="12.0",fontcolor="black",label=<midi_cmd_t(1)>
-,headlabel=<<TABLE BORDER="0" CELLPADDING="4"><TR><TD><FONT COLOR="blue" POINT-SIZE="12.0" >1</FONT>
-</TD></TR></TABLE>>
+dup2 -> Waveform2:i [style="solid",color="black",fontsize="12.0",fontcolor="black",label=<midi_cmd_t>
+
+]
+
+ 
+dup2 -> Enveloppe_2:c [style="solid",color="black",fontsize="12.0",fontcolor="black",label=<midi_cmd_t>
+
 ]
 
 NoteSequencer:D ->  
-dup3 [style="solid",color="black",fontsize="12.0",fontcolor="black",label=<midi_cmd_t(1)>
+dup3 [style="solid",color="black",fontsize="12.0",fontcolor="black",label=<midi_cmd_t>
 
-,taillabel=<<TABLE BORDER="0" CELLPADDING="4"><TR><TD><FONT COLOR="blue" POINT-SIZE="12.0" >1</FONT>
-</TD></TR></TABLE>>]
-
- 
-dup3 -> Waveform3:i [style="solid",color="black",fontsize="12.0",fontcolor="black",label=<midi_cmd_t(1)>
-,headlabel=<<TABLE BORDER="0" CELLPADDING="4"><TR><TD><FONT COLOR="blue" POINT-SIZE="12.0" >1</FONT>
-</TD></TR></TABLE>>
 ]
 
  
-dup3 -> Enveloppe_3:c [style="solid",color="black",fontsize="12.0",fontcolor="black",label=<midi_cmd_t(1)>
-,headlabel=<<TABLE BORDER="0" CELLPADDING="4"><TR><TD><FONT COLOR="blue" POINT-SIZE="12.0" >1</FONT>
-</TD></TR></TABLE>>
+dup3 -> Waveform3:i [style="solid",color="black",fontsize="12.0",fontcolor="black",label=<midi_cmd_t>
+
+]
+
+ 
+dup3 -> Enveloppe_3:c [style="solid",color="black",fontsize="12.0",fontcolor="black",label=<midi_cmd_t>
+
 ]
 
 NoteSequencer:E ->  
-dup4 [style="solid",color="black",fontsize="12.0",fontcolor="black",label=<midi_cmd_t(1)>
+dup4 [style="solid",color="black",fontsize="12.0",fontcolor="black",label=<midi_cmd_t>
 
-,taillabel=<<TABLE BORDER="0" CELLPADDING="4"><TR><TD><FONT COLOR="blue" POINT-SIZE="12.0" >1</FONT>
-</TD></TR></TABLE>>]
-
- 
-dup4 -> Waveform4:i [style="solid",color="black",fontsize="12.0",fontcolor="black",label=<midi_cmd_t(1)>
-,headlabel=<<TABLE BORDER="0" CELLPADDING="4"><TR><TD><FONT COLOR="blue" POINT-SIZE="12.0" >1</FONT>
-</TD></TR></TABLE>>
 ]
 
  
-dup4 -> Enveloppe_4:c [style="solid",color="black",fontsize="12.0",fontcolor="black",label=<midi_cmd_t(1)>
-,headlabel=<<TABLE BORDER="0" CELLPADDING="4"><TR><TD><FONT COLOR="blue" POINT-SIZE="12.0" >1</FONT>
-</TD></TR></TABLE>>
+dup4 -> Waveform4:i [style="solid",color="black",fontsize="12.0",fontcolor="black",label=<midi_cmd_t>
+
+]
+
+ 
+dup4 -> Enveloppe_4:c [style="solid",color="black",fontsize="12.0",fontcolor="black",label=<midi_cmd_t>
+
 ]
 
 NoteSequencer:F ->  
-dup5 [style="solid",color="black",fontsize="12.0",fontcolor="black",label=<midi_cmd_t(1)>
+dup5 [style="solid",color="black",fontsize="12.0",fontcolor="black",label=<midi_cmd_t>
 
-,taillabel=<<TABLE BORDER="0" CELLPADDING="4"><TR><TD><FONT COLOR="blue" POINT-SIZE="12.0" >1</FONT>
-</TD></TR></TABLE>>]
-
- 
-dup5 -> Waveform5:i [style="solid",color="black",fontsize="12.0",fontcolor="black",label=<midi_cmd_t(1)>
-,headlabel=<<TABLE BORDER="0" CELLPADDING="4"><TR><TD><FONT COLOR="blue" POINT-SIZE="12.0" >1</FONT>
-</TD></TR></TABLE>>
 ]
 
  
-dup5 -> Enveloppe_5:c [style="solid",color="black",fontsize="12.0",fontcolor="black",label=<midi_cmd_t(1)>
-,headlabel=<<TABLE BORDER="0" CELLPADDING="4"><TR><TD><FONT COLOR="blue" POINT-SIZE="12.0" >1</FONT>
-</TD></TR></TABLE>>
+dup5 -> Waveform5:i [style="solid",color="black",fontsize="12.0",fontcolor="black",label=<midi_cmd_t>
+
+]
+
+ 
+dup5 -> Enveloppe_5:c [style="solid",color="black",fontsize="12.0",fontcolor="black",label=<midi_cmd_t>
+
 ]
 
 ogain:i ->  

@@ -1,5 +1,7 @@
 #pragma once 
 
+using namespace arm_cmsis_stream;
+
 // Define some types
 #include "Nodes/Playtune_synth/Sequencer/component.hpp"
 

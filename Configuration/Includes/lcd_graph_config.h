@@ -20,6 +20,9 @@ extern q15_t hanningQ15[FFTSIZE];
 
 #include "GenericNodes.h"
 #include "cg_status.h"
+
+using namespace arm_cmsis_stream;
+
 #include "Nodes/Generic/Gain/component.hpp"
 #include "Nodes/Playtune_synth/Sequencer/component.hpp"
 

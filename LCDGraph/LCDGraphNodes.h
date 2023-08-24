@@ -3,6 +3,8 @@
 #include "arm_2d_types.h"
 extern const arm_2d_tile_t c_tilecmsisLOGORGB565;
 
+using namespace arm_cmsis_stream;
+
 #include "CFFT.h"
 #include "ToComplex.h"
 

@@ -177,8 +177,8 @@ sched.ccode("LCDGraph",conf)
 # you should uncomment those lines to be sure you are also using the
 # latest version of those 2 C++ headers
 
-#generateGenericNodes("./App/Includes")
-#generateCGStatus("./App/Includes")
+generateGenericNodes("./App/Includes")
+generateCGStatus("./App/Includes")
 
 class MyStyle(Style):
     def node_color(self,node):
