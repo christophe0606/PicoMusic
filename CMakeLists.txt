@@ -29,6 +29,7 @@ pico_sdk_init()
 
 add_executable(stream
         App/Sources/main.cpp
+        App/Sources/key_control.cpp
         App/Sources/cmsis_logo.c 
         AudioGraph/audio_scheduler.cpp 
         LCDGraph/lcd_scheduler.cpp

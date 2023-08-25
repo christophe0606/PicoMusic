@@ -26,11 +26,15 @@ With a serial console connected though USB you can control the digital gain of t
 
 * `+` or `=` key to increase the digital gain
 * `-` key to decrease the digital gain
-* `q` to set the gain to `0.0`
+* `q` (quiet) to set the gain to `0.0`
 
-The console will also display the name of the song being played. If you have configured several songs in the demo, you can move to the next song with `n` key.
+The console also displays the name of the song being played. If you have configured several songs in the demo, you can move to the next song with `n` key.
 
 ![Console](Documentation/Console.jpg)
+
+You can also use the buttons below the screen:
+
+![Buttons](Documentation/Buttons.jpg)
 
 To add new songs, you can modify the arrays defined in `Songs/songs.c` and add a reference to your new song:
 
