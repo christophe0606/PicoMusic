@@ -1,12 +1,5 @@
 cmake_minimum_required(VERSION 3.12)
 
-set(CMSISDSP "submodules/CMSIS-DSP" CACHE STRING "CMSIS-DSP Library")
-set(CMSISSTREAM "submodules/CMSIS-Stream" CACHE STRING "CMSIS-Stream library")
-set(ARM2D_RP2040 "submodules/Arm2D_RP2040/RP2040" CACHE STRING "RP2040 optimizations for Arm2D")
-set(ARM2D "submodules/Arm-2D" CACHE STRING "Arm-2D library")
-set(CMSISCORE "submodules/CMSIS_5/CMSIS/Core" CACHE STRING "CMSIS Core")
-
-
 
 # Pull in SDK (must be before project)
 include(pico_sdk_import.cmake)
@@ -16,6 +9,14 @@ include(pico_extras_import_optional.cmake)
 project(pico_examples C CXX ASM)
 set(CMAKE_C_STANDARD 11)
 set(CMAKE_CXX_STANDARD 17)
+
+set(CMSISDSP "${CMAKE_CURRENT_LIST_DIR}/submodules/CMSIS-DSP" CACHE STRING "CMSIS-DSP Library")
+set(CMSISSTREAM "${CMAKE_CURRENT_LIST_DIR}/submodules/CMSIS-Stream" CACHE STRING "CMSIS-Stream library")
+set(ARM2D_RP2040 "${CMAKE_CURRENT_LIST_DIR}/submodules/Arm2D_RP2040/RP2040" CACHE STRING "RP2040 optimizations for Arm2D")
+set(ARM2D "${CMAKE_CURRENT_LIST_DIR}/submodules/Arm-2D" CACHE STRING "Arm-2D library")
+set(CMSISCORE "${CMAKE_CURRENT_LIST_DIR}/submodules/CMSIS_5/CMSIS/Core" CACHE STRING "CMSIS Core")
+
+
 
 if (PICO_SDK_VERSION_STRING VERSION_LESS "1.3.0")
     message(FATAL_ERROR "Raspberry Pi Pico SDK version 1.3.0 (or later) required. Your version is ${PICO_SDK_VERSION_STRING}")

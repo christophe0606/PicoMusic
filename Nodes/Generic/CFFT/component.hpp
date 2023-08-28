@@ -3,6 +3,7 @@
 #include "CFFT.h"
 #include "dsp/transform_functions.h"
 
+namespace arm_cmsis_stream {
 
 template<>
 class CFFT<q15_t,512,
@@ -46,3 +47,5 @@ public:
     arm_status status;
 
 };
+
+}

@@ -164,23 +164,25 @@ The pins used comes from the `Arm2D_RP2040` project and are defined in `RP2040/s
 
 First, you need to be able to build the Pico examples and have the pico-extra since the demo is using audio drivers from pico-extra. Refer to the Pico documentation to know what to install.
 
-Once it is working, you can then build this project:
+`PICO_SDK_PATH` must be set.
+
+`PICO_EXTRAS_PATH` must be set.
+
+Once you can build some Pico examples, you can then build this project:
+
+```shell
+git clone --recurse-submodules https://github.com/christophe0606/PicoMusic.git
+cd PicoMusic
+```
 
 ```shell
 mkdir build.tmp
 cd build.tmp
-cmake -DARM2D=/ArmSoftware/Arm-2D \
- -DCMSISDSP=/ArmSoftware/CMSIS-DSP \
- -DCMSISSTREAM=/ArmSoftware/CMSIS-Stream \
- -DCMSISCORE=/ArmSoftware/CMSIS_5/CMSIS/Core \
- -DARM2D_RP2040=/ArmSoftware/Arm2D_RP2040/RP2040 \
- -DHOST=NO ..
+cmake -G "Unix Makefiles" ..
 make
 ```
 
-Where `ArmSoftware` is the path where you have installed the Arm libraries.
-
-You can clone the Arm libraries with:
+If you have already cloned the libraries, instead of using the git submodules, using following command:
 
 ```shell
 git clone https://github.com/ARM-software/CMSIS-DSP.git
@@ -190,9 +192,21 @@ git clone https://github.com/ARM-software/Arm-2D.git
 git clone https://github.com/christophe0606/Arm2D_RP2040
 ```
 
+You can use following options on the `cmake` command line:
+
+```shell
+-DARM2D=/ArmSoftware/Arm-2D \
+-DCMSISDSP=/ArmSoftware/CMSIS-DSP \
+-DCMSISSTREAM=/ArmSoftware/CMSIS-Stream \
+-DCMSISCORE=/ArmSoftware/CMSIS_5/CMSIS/Core \
+-DARM2D_RP2040=/ArmSoftware/Arm2D_RP2040/RP2040
+```
+
+Where `ArmSoftware` is the path where you cloned the libraries.
+
 For CMSIS-DSP and Arm-2D, use the develop branch.
 
-The last project Arm2D_RP2040 is providing RP2040 specific optimizations for [Arm-2D](https://github.com/ARM-software/Arm-2D) and is also providing a `CMakeLists.txt` to make it easier to build [Arm-2D](https://github.com/ARM-software/Arm-2D) +  [CMSIS-DSP](https://github.com/ARM-software/CMSIS-DSP) in the Pico environment.
+The last project Arm2D_RP2040 is providing RP2040 specific optimizations for [Arm-2D](https://github.com/ARM-software/Arm-2D) and is also providing a `CMakeLists.txt` to make it easier to build both [Arm-2D](https://github.com/ARM-software/Arm-2D) +  [CMSIS-DSP](https://github.com/ARM-software/CMSIS-DSP) in the Pico environment.
 
 ## Copyright and licensing information
 
