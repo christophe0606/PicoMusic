@@ -1,5 +1,13 @@
 cmake_minimum_required(VERSION 3.12)
 
+set(CMSISDSP "submodules/CMSIS-DSP" CACHE STRING "CMSIS-DSP Library")
+set(CMSISSTREAM "submodules/CMSIS-Stream" CACHE STRING "CMSIS-Stream library")
+set(ARM2D_RP2040 "submodules/Arm2D_RP2040/RP2040" CACHE STRING "RP2040 optimizations for Arm2D")
+set(ARM2D "submodules/Arm-2D" CACHE STRING "Arm-2D library")
+set(CMSISCORE "submodules/CMSIS_5/CMSIS/Core" CACHE STRING "CMSIS Core")
+
+
+
 # Pull in SDK (must be before project)
 include(pico_sdk_import.cmake)
 

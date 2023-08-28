@@ -1,0 +1,15 @@
+[submodule "submodules/CMSIS-Stream"]
+	path = submodules/CMSIS-Stream
+	url = https://github.com/ARM-software/CMSIS-Stream.git
+[submodule "submodules/CMSIS-DSP"]
+	path = submodules/CMSIS-DSP
+	url = https://github.com/ARM-software/CMSIS-DSP.git
+[submodule "submodules/CMSIS_5"]
+	path = submodules/CMSIS_5
+	url = https://github.com/ARM-software/CMSIS_5.git
+[submodule "submodules/Arm-2D"]
+	path = submodules/Arm-2D
+	url = https://github.com/ARM-software/Arm-2D.git
+[submodule "submodules/Arm2D_RP2040"]
+	path = submodules/Arm2D_RP2040
+	url = https://github.com/christophe0606/Arm2D_RP2040
