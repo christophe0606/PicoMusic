@@ -182,17 +182,7 @@ cmake -G "Unix Makefiles" ..
 make
 ```
 
-If you have already cloned the libraries, instead of using the git submodules, using following command:
-
-```shell
-git clone https://github.com/ARM-software/CMSIS-DSP.git
-git clone https://github.com/ARM-software/CMSIS-Stream.git
-git clone https://github.com/ARM-software/CMSIS_5.git
-git clone https://github.com/ARM-software/Arm-2D.git
-git clone https://github.com/christophe0606/Arm2D_RP2040
-```
-
-You can use following options on the `cmake` command line:
+You can also use the following options on the `cmake` command line if you don't want to use the git submodules and have already cloned the repositories:
 
 ```shell
 -DARM2D=/ArmSoftware/Arm-2D \
