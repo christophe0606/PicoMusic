@@ -98,9 +98,17 @@ The layers are then composed with blending by the [Arm-2D](https://github.com/AR
 
 ## Connection to speaker
 
-![PicoAmp_bb](Documentation/PicoAmp_bb.png)
+The color coding is reflecting what I used on my hardware and unfortunately I did not have enough wires for the grounds. So the ground connections are not displayed in black.
+
+And the 3V connection is not always represented in red.
+
+![PicoAmp_bb](Documentation/PicoAmp_bb.jpg)
 
 ![PicoAmp_scheme](Documentation/PicoAmp_scheme.jpg)
+
+Here is a photo of the final experiment:
+
+![IMG_1798](Documentation/IMG_1798.jpg)
 
 The transistor is a NPN 2222A. But any other NPN transistor would work. It just need to have a higher bandwidth than audio bandwidth.
 
