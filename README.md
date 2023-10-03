@@ -1,6 +1,8 @@
 # PicoMusic
 Music synthesis and spectrum visualization on RP2040 with [CMSIS-Stream](https://github.com/ARM-software/CMSIS-Stream), [CMSIS-DSP](https://github.com/ARM-software/CMSIS-DSP) and [Arm-2D](https://github.com/ARM-software/Arm-2D) .
 
+There is now a related [blog post](https://www.hackster.io/christophe-favergeon/synthesize-music-with-animations-on-a-raspberry-pi-pico-9fcd3f) on Hackster.
+
 ## Introduction
 
 The demo is made of 2  [CMSIS-Stream](https://github.com/ARM-software/CMSIS-Stream) graphs. 
